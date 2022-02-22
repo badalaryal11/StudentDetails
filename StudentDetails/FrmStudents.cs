@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace StudentDetails
 {
-    public partial class Form2 : Form
+    public partial class FrmStudents : Form
     {
-        public Form2()
+        public FrmStudents()
         {
             InitializeComponent();
         }
@@ -20,6 +20,12 @@ namespace StudentDetails
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void mnuNew_Click(object sender, EventArgs e)
+        {
+            var form = new FrmStudentEntry();
+            form.ShowDialog();
         }
     }
 }
