@@ -30,6 +30,7 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtDescription = new System.Windows.Forms.TextBox();
             this.btnRegister = new System.Windows.Forms.Button();
             this.txtNationality = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -53,7 +54,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.txtDescription = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -102,6 +102,15 @@
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             // 
+            // txtDescription
+            // 
+            this.txtDescription.Location = new System.Drawing.Point(104, 342);
+            this.txtDescription.MaxLength = 250;
+            this.txtDescription.Multiline = true;
+            this.txtDescription.Name = "txtDescription";
+            this.txtDescription.Size = new System.Drawing.Size(535, 96);
+            this.txtDescription.TabIndex = 26;
+            // 
             // btnRegister
             // 
             this.btnRegister.Location = new System.Drawing.Point(684, 415);
@@ -140,7 +149,6 @@
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(185, 23);
             this.txtPhone.TabIndex = 22;
-            this.txtPhone.TextChanged += new System.EventHandler(this.txtPhone_TextChanged);
             // 
             // label10
             // 
@@ -215,11 +223,13 @@
             // 
             // txtName
             // 
+            this.txtName.AcceptsTab = true;
             this.txtName.Location = new System.Drawing.Point(104, 36);
             this.txtName.MaxLength = 250;
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(535, 23);
             this.txtName.TabIndex = 11;
+            this.txtName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label9
             // 
@@ -309,15 +319,6 @@
             this.label5.Size = new System.Drawing.Size(84, 15);
             this.label5.TabIndex = 4;
             this.label5.Text = "FATHER NAME";
-            // 
-            // txtDescription
-            // 
-            this.txtDescription.Location = new System.Drawing.Point(104, 342);
-            this.txtDescription.MaxLength = 250;
-            this.txtDescription.Multiline = true;
-            this.txtDescription.Name = "txtDescription";
-            this.txtDescription.Size = new System.Drawing.Size(535, 96);
-            this.txtDescription.TabIndex = 26;
             // 
             // FrmStudentEntry
             // 

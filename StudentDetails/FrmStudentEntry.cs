@@ -1,3 +1,5 @@
+using System.Data.SQLite;
+
 namespace StudentDetails
 {
     public partial class FrmStudentEntry : Form
@@ -7,11 +9,10 @@ namespace StudentDetails
             InitializeComponent();
         }
 
-        
+
         private void btnRegister_Click(object sender, EventArgs e)
         {
-            //FrmStudents f2 = new FrmStudents();
-            //f2.ShowDialog();
+
 
             if (string.IsNullOrWhiteSpace(txtName.Text))
             {
@@ -29,21 +30,25 @@ namespace StudentDetails
                 Status = txtStatus.Text.Trim(),
                 Phone = txtPhone.Text.Trim(),
                 Nationality = txtNationality.Text.Trim(),
-               MotherName =txtMother.Text.Trim(),
-                FatherName=txtFather.Text.Trim(),
-                Description=txtDescription.Text.Trim()
-                
+                MotherName = txtMother.Text.Trim(),
+                FatherName = txtFather.Text.Trim(),
+                Description = txtDescription.Text.Trim()
             };
 
 
-            
-        }
+            using var conn = new SQLiteConnection(@"Data Source=Students.db;Version=3");
+            conn.Open();
 
-        private void txtPhone_TextChanged(object sender, EventArgs e)
-        {
+            var cmd = new SQLiteCommand($@"INSERT INTO Student (Name, Address) VALUES ('{student.Name}','{student.Address}')", conn)
+            {
+                CommandType = System.Data.CommandType.Text
+            };
 
+            var rowsCount = cmd.ExecuteNonQuery();
+            conn.Close();
         }
     }
+}
 
     public class Student
     {
@@ -63,4 +68,3 @@ namespace StudentDetails
         public string Description { get; set; }
 
     }
-}

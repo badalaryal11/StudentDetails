@@ -47,9 +47,12 @@
             this.vIEWToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fILEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.vIEWToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.oPENToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sAVEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sAVEASToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.vIEWToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuNew = new System.Windows.Forms.ToolStripMenuItem();
+            this.vIEWToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.gridStudents)).BeginInit();
             this.mnuRegister.SuspendLayout();
             this.contextMenuStrip2.SuspendLayout();
@@ -87,6 +90,7 @@
             // 
             // NAME
             // 
+            this.NAME.Frozen = true;
             this.NAME.HeaderText = "NAME";
             this.NAME.MinimumWidth = 150;
             this.NAME.Name = "NAME";
@@ -95,54 +99,63 @@
             // 
             // ADDRESS
             // 
+            this.ADDRESS.Frozen = true;
             this.ADDRESS.HeaderText = "ADDRESS";
             this.ADDRESS.Name = "ADDRESS";
             this.ADDRESS.ReadOnly = true;
             // 
             // GENDER
             // 
+            this.GENDER.Frozen = true;
             this.GENDER.HeaderText = "GENDER";
             this.GENDER.Name = "GENDER";
             this.GENDER.ReadOnly = true;
             // 
             // CLASS
             // 
+            this.CLASS.Frozen = true;
             this.CLASS.HeaderText = "CLASS";
             this.CLASS.Name = "CLASS";
             this.CLASS.ReadOnly = true;
             // 
             // ROLLNO
             // 
+            this.ROLLNO.Frozen = true;
             this.ROLLNO.HeaderText = "ROLLNO.";
             this.ROLLNO.Name = "ROLLNO";
             this.ROLLNO.ReadOnly = true;
             // 
             // STATUS
             // 
+            this.STATUS.Frozen = true;
             this.STATUS.HeaderText = "STATUS";
             this.STATUS.Name = "STATUS";
             this.STATUS.ReadOnly = true;
             // 
             // PHONE
             // 
+            this.PHONE.Frozen = true;
             this.PHONE.HeaderText = "PHONE";
             this.PHONE.Name = "PHONE";
             this.PHONE.ReadOnly = true;
             // 
             // NATIONALITY
             // 
+            this.NATIONALITY.Frozen = true;
             this.NATIONALITY.HeaderText = "NATIONALITY";
             this.NATIONALITY.Name = "NATIONALITY";
             this.NATIONALITY.ReadOnly = true;
             // 
             // FATHERNAME
             // 
+            this.FATHERNAME.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.FATHERNAME.HeaderText = "FATHER NAME";
             this.FATHERNAME.Name = "FATHERNAME";
             this.FATHERNAME.ReadOnly = true;
             // 
             // MOTHERNAME
             // 
+            this.MOTHERNAME.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.MOTHERNAME.HeaderText = "MOTHER NAME";
             this.MOTHERNAME.Name = "MOTHERNAME";
             this.MOTHERNAME.ReadOnly = true;
@@ -194,15 +207,31 @@
             // 
             // fILEToolStripMenuItem
             // 
+            this.fILEToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.oPENToolStripMenuItem,
+            this.sAVEToolStripMenuItem,
+            this.sAVEASToolStripMenuItem});
             this.fILEToolStripMenuItem.Name = "fILEToolStripMenuItem";
             this.fILEToolStripMenuItem.Size = new System.Drawing.Size(40, 20);
             this.fILEToolStripMenuItem.Text = "FILE";
             // 
-            // vIEWToolStripMenuItem3
+            // oPENToolStripMenuItem
             // 
-            this.vIEWToolStripMenuItem3.Name = "vIEWToolStripMenuItem3";
-            this.vIEWToolStripMenuItem3.Size = new System.Drawing.Size(46, 20);
-            this.vIEWToolStripMenuItem3.Text = "VIEW";
+            this.oPENToolStripMenuItem.Name = "oPENToolStripMenuItem";
+            this.oPENToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
+            this.oPENToolStripMenuItem.Text = "OPEN";
+            // 
+            // sAVEToolStripMenuItem
+            // 
+            this.sAVEToolStripMenuItem.Name = "sAVEToolStripMenuItem";
+            this.sAVEToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
+            this.sAVEToolStripMenuItem.Text = "SAVE";
+            // 
+            // sAVEASToolStripMenuItem
+            // 
+            this.sAVEASToolStripMenuItem.Name = "sAVEASToolStripMenuItem";
+            this.sAVEASToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
+            this.sAVEASToolStripMenuItem.Text = "SAVE AS";
             // 
             // vIEWToolStripMenuItem2
             // 
@@ -218,6 +247,13 @@
             this.mnuNew.Size = new System.Drawing.Size(100, 22);
             this.mnuNew.Text = "NEW";
             this.mnuNew.Click += new System.EventHandler(this.mnuNew_Click);
+            // 
+            // vIEWToolStripMenuItem3
+            // 
+            this.vIEWToolStripMenuItem3.Name = "vIEWToolStripMenuItem3";
+            this.vIEWToolStripMenuItem3.Size = new System.Drawing.Size(46, 20);
+            this.vIEWToolStripMenuItem3.Text = "VIEW";
+            this.vIEWToolStripMenuItem3.Click += new System.EventHandler(this.vIEWToolStripMenuItem3_Click);
             // 
             // FrmStudents
             // 
@@ -251,6 +287,11 @@
         private MenuStrip menuStrip1;
         private ToolStripMenuItem vIEWToolStripMenuItem2;
         private ToolStripMenuItem mnuNew;
+        private ToolStripMenuItem vIEWToolStripMenuItem3;
+        private ToolStripMenuItem fILEToolStripMenuItem;
+        private ToolStripMenuItem oPENToolStripMenuItem;
+        private ToolStripMenuItem sAVEToolStripMenuItem;
+        private ToolStripMenuItem sAVEASToolStripMenuItem;
         private DataGridViewTextBoxColumn NAME;
         private DataGridViewTextBoxColumn ADDRESS;
         private DataGridViewTextBoxColumn GENDER;
@@ -259,10 +300,8 @@
         private DataGridViewTextBoxColumn STATUS;
         private DataGridViewTextBoxColumn PHONE;
         private DataGridViewTextBoxColumn NATIONALITY;
-        private DataGridViewTextBoxColumn DESCRIPTION;
         private DataGridViewTextBoxColumn FATHERNAME;
         private DataGridViewTextBoxColumn MOTHERNAME;
-        private ToolStripMenuItem vIEWToolStripMenuItem3;
-        private ToolStripMenuItem fILEToolStripMenuItem;
+        private DataGridViewTextBoxColumn DESCRIPTION;
     }
 }
