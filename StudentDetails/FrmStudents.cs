@@ -37,7 +37,9 @@ namespace StudentDetails
 
                 while (await reader.ReadAsync())
                 {
-                    dictionary.Add(Convert.ToInt32(reader["Id"]), (string)reader["Name"]);
+                    dictionary.Add(Convert.ToInt32(reader["Id"]), (string)reader["Name"],(string)reader["Address"],
+                       (string)reader["Gender"],reader["Class"],reader["Roll No."],(string)reader["Status"],reader["Phone"],
+                        (string)reader["Nationality"], (string)reader["MotherName"], (string)reader["FatherName"], (string)reader["Description"]);
                 }
             }
             catch(Exception e)
@@ -60,6 +62,15 @@ namespace StudentDetails
         private async void vIEWToolStripMenuItem3_Click(object sender, EventArgs e)
         {
             await LoadDataAsync();
+        }
+
+        
+        private void mnuUpdate_Click(object sender, EventArgs e)
+        {
+            var form = new FrmStudentEntry();
+            form.ShowDialog();
+
+
         }
     }
 }

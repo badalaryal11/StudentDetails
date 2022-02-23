@@ -12,9 +12,11 @@ namespace StudentDetails
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
+           
+            
           
 
-            if (string.IsNullOrWhiteSpace(txtName.Text))
+            if(string.IsNullOrWhiteSpace(txtName.Text))
             {
                 MessageBox.Show("Enter student name");
                 return;

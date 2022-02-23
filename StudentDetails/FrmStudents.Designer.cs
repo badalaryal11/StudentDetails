@@ -53,6 +53,7 @@
             this.vIEWToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuNew = new System.Windows.Forms.ToolStripMenuItem();
             this.vIEWToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuUpdate = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.gridStudents)).BeginInit();
             this.mnuRegister.SuspendLayout();
             this.contextMenuStrip2.SuspendLayout();
@@ -236,7 +237,8 @@
             // vIEWToolStripMenuItem2
             // 
             this.vIEWToolStripMenuItem2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mnuNew});
+            this.mnuNew,
+            this.mnuUpdate});
             this.vIEWToolStripMenuItem2.Name = "vIEWToolStripMenuItem2";
             this.vIEWToolStripMenuItem2.Size = new System.Drawing.Size(42, 20);
             this.vIEWToolStripMenuItem2.Text = "EDIT";
@@ -244,7 +246,7 @@
             // mnuNew
             // 
             this.mnuNew.Name = "mnuNew";
-            this.mnuNew.Size = new System.Drawing.Size(100, 22);
+            this.mnuNew.Size = new System.Drawing.Size(180, 22);
             this.mnuNew.Text = "NEW";
             this.mnuNew.Click += new System.EventHandler(this.mnuNew_Click);
             // 
@@ -254,6 +256,13 @@
             this.vIEWToolStripMenuItem3.Size = new System.Drawing.Size(46, 20);
             this.vIEWToolStripMenuItem3.Text = "VIEW";
             this.vIEWToolStripMenuItem3.Click += new System.EventHandler(this.vIEWToolStripMenuItem3_Click);
+            // 
+            // mnuUpdate
+            // 
+            this.mnuUpdate.Name = "mnuUpdate";
+            this.mnuUpdate.Size = new System.Drawing.Size(180, 22);
+            this.mnuUpdate.Text = "UPDATE";
+            this.mnuUpdate.Click += new System.EventHandler(this.mnuUpdate_Click);
             // 
             // FrmStudents
             // 
@@ -303,5 +312,6 @@
         private DataGridViewTextBoxColumn FATHERNAME;
         private DataGridViewTextBoxColumn MOTHERNAME;
         private DataGridViewTextBoxColumn DESCRIPTION;
+        private ToolStripMenuItem mnuUpdate;
     }
 }
