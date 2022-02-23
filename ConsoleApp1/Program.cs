@@ -17,11 +17,12 @@ namespace MyConnsoleApp
             var student2 = new
             {
                 Id = 2,
-                Name = "Rabi",
-                Address = "Jnk",
+                Name = "Badal",
+                Address = "Ktm",
                 Gender = "Male"
             };
             var student3 = new Student(3, "Raju", "GMMM", "Male");
+
 
 
             List<Student> s;
@@ -47,5 +48,8 @@ namespace MyConnsoleApp
             Address = address;
             Gender = gender;
         }
+
+        
     }
+        
 }

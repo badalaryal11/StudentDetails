@@ -73,13 +73,27 @@ namespace StudentDetails
                 return;
             }
 
+
+
+            var isInteger = int.TryParse(txtRollNo.Text.Trim(), out var intValue);
+            if (isInteger == false)
+            {
+
+            }
+            else
+            {
+                // true
+                var rollNo = intValue;
+            }
+
+
             var student = new Student
             {
                 Name = txtName.Text.Trim(),
                 Address = txtAddress.Text.Trim(),
                 Gender = txtGender.Text.Trim(),
                 Class = txtclass.Text.Trim(),
-                RollNo = txtRollNo.Text.Trim(),
+                RollNo = Convert.ToInt32(txtRollNo.Text.Trim()),
                 Status = txtStatus.Text.Trim(),
                 Phone = txtPhone.Text.Trim(),
                 Nationality = txtNationality.Text.Trim(),

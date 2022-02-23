@@ -52,8 +52,8 @@
             this.sAVEASToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.vIEWToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuNew = new System.Windows.Forms.ToolStripMenuItem();
-            this.vIEWToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuUpdate = new System.Windows.Forms.ToolStripMenuItem();
+            this.vIEWToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.gridStudents)).BeginInit();
             this.mnuRegister.SuspendLayout();
             this.contextMenuStrip2.SuspendLayout();
@@ -79,13 +79,13 @@
             this.MOTHERNAME,
             this.DESCRIPTION});
             this.gridStudents.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.gridStudents.Location = new System.Drawing.Point(0, 28);
+            this.gridStudents.Location = new System.Drawing.Point(0, 53);
             this.gridStudents.MultiSelect = false;
             this.gridStudents.Name = "gridStudents";
             this.gridStudents.ReadOnly = true;
             this.gridStudents.RowTemplate.Height = 25;
             this.gridStudents.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridStudents.Size = new System.Drawing.Size(800, 422);
+            this.gridStudents.Size = new System.Drawing.Size(1029, 422);
             this.gridStudents.TabIndex = 0;
             this.gridStudents.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -202,7 +202,7 @@
             this.vIEWToolStripMenuItem3});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1029, 24);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -250,6 +250,13 @@
             this.mnuNew.Text = "NEW";
             this.mnuNew.Click += new System.EventHandler(this.mnuNew_Click);
             // 
+            // mnuUpdate
+            // 
+            this.mnuUpdate.Name = "mnuUpdate";
+            this.mnuUpdate.Size = new System.Drawing.Size(180, 22);
+            this.mnuUpdate.Text = "UPDATE";
+            this.mnuUpdate.Click += new System.EventHandler(this.mnuNew_Click);
+            // 
             // vIEWToolStripMenuItem3
             // 
             this.vIEWToolStripMenuItem3.Name = "vIEWToolStripMenuItem3";
@@ -257,18 +264,11 @@
             this.vIEWToolStripMenuItem3.Text = "VIEW";
             this.vIEWToolStripMenuItem3.Click += new System.EventHandler(this.vIEWToolStripMenuItem3_Click);
             // 
-            // mnuUpdate
-            // 
-            this.mnuUpdate.Name = "mnuUpdate";
-            this.mnuUpdate.Size = new System.Drawing.Size(180, 22);
-            this.mnuUpdate.Text = "UPDATE";
-            this.mnuUpdate.Click += new System.EventHandler(this.mnuUpdate_Click);
-            // 
             // FrmStudents
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1029, 475);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.gridStudents);
             this.MainMenuStrip = this.menuStrip1;
