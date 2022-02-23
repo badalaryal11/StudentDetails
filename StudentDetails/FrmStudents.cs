@@ -21,7 +21,7 @@ namespace StudentDetails
         private async Task LoadDataAsync()
         {
 
-            /*   var dictionary = new Dictionary<int, string>();
+              var dictionary = new Dictionary<int, string>();
 
                try
                {
@@ -45,22 +45,22 @@ namespace StudentDetails
                catch(Exception e)
                {
                    MessageBox.Show(e.Message);
-               }*/
-            List<int> students = new List<int>();
+               }
+            /*List<int> students = new List<int>();
             students.Add(1); // adding elements using add() method
             students.Add(2);
             students.Add(3);
             students.Add(4);
 
             var Name = new List<string>();
-            Name.Add("New York");
+            Name.Add("");
             Name.Add("London");
             Name.Add("Mumbai");
             Name.Add("Chicago");
             Name.Add("Badal");// nulls are allowed for reference type list
 
             //adding elements using collection-initializer syntax
-            var bigCities = new List<string>()
+            var studentsname= new List<string>()
                     {
                         "New York",
                         "London",
@@ -68,6 +68,7 @@ namespace StudentDetails
                         "Chicago",
                         "Badal"
                     };
+            */
 
         }
 
