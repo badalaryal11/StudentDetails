@@ -109,14 +109,14 @@
             this.txtDescription.Multiline = true;
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(535, 96);
-            this.txtDescription.TabIndex = 26;
+            this.txtDescription.TabIndex = 21;
             // 
             // btnRegister
             // 
             this.btnRegister.Location = new System.Drawing.Point(684, 415);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(75, 23);
-            this.btnRegister.TabIndex = 25;
+            this.btnRegister.TabIndex = 22;
             this.btnRegister.Text = "SUBMIT";
             this.btnRegister.UseVisualStyleBackColor = true;
             this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
@@ -131,7 +131,7 @@
             this.txtNationality.Location = new System.Drawing.Point(496, 213);
             this.txtNationality.Name = "txtNationality";
             this.txtNationality.Size = new System.Drawing.Size(143, 23);
-            this.txtNationality.TabIndex = 24;
+            this.txtNationality.TabIndex = 18;
             // 
             // label11
             // 
@@ -148,7 +148,7 @@
             this.txtPhone.MaxLength = 16;
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(185, 23);
-            this.txtPhone.TabIndex = 22;
+            this.txtPhone.TabIndex = 17;
             // 
             // label10
             // 
@@ -165,7 +165,7 @@
             this.txtclass.MaxLength = 10;
             this.txtclass.Name = "txtclass";
             this.txtclass.Size = new System.Drawing.Size(143, 23);
-            this.txtclass.TabIndex = 20;
+            this.txtclass.TabIndex = 14;
             // 
             // txtStatus
             // 
@@ -176,7 +176,7 @@
             this.txtStatus.Location = new System.Drawing.Point(496, 175);
             this.txtStatus.Name = "txtStatus";
             this.txtStatus.Size = new System.Drawing.Size(143, 23);
-            this.txtStatus.TabIndex = 19;
+            this.txtStatus.TabIndex = 16;
             // 
             // txtGender
             // 
@@ -188,7 +188,7 @@
             this.txtGender.Location = new System.Drawing.Point(104, 131);
             this.txtGender.Name = "txtGender";
             this.txtGender.Size = new System.Drawing.Size(185, 23);
-            this.txtGender.TabIndex = 17;
+            this.txtGender.TabIndex = 13;
             // 
             // txtFather
             // 
@@ -196,7 +196,7 @@
             this.txtFather.MaxLength = 250;
             this.txtFather.Name = "txtFather";
             this.txtFather.Size = new System.Drawing.Size(535, 23);
-            this.txtFather.TabIndex = 16;
+            this.txtFather.TabIndex = 20;
             // 
             // txtMother
             // 
@@ -204,14 +204,14 @@
             this.txtMother.MaxLength = 250;
             this.txtMother.Name = "txtMother";
             this.txtMother.Size = new System.Drawing.Size(535, 23);
-            this.txtMother.TabIndex = 15;
+            this.txtMother.TabIndex = 19;
             // 
             // txtRollNo
             // 
             this.txtRollNo.Location = new System.Drawing.Point(104, 170);
             this.txtRollNo.Name = "txtRollNo";
             this.txtRollNo.Size = new System.Drawing.Size(185, 23);
-            this.txtRollNo.TabIndex = 13;
+            this.txtRollNo.TabIndex = 15;
             // 
             // txtAddress
             // 
@@ -229,7 +229,6 @@
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(535, 23);
             this.txtName.TabIndex = 11;
-            this.txtName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label9
             // 
