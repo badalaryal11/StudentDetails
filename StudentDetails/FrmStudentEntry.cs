@@ -12,7 +12,7 @@ namespace StudentDetails
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
-
+          
 
             if (string.IsNullOrWhiteSpace(txtName.Text))
             {
@@ -90,7 +90,9 @@ namespace StudentDetails
             using var conn = new SQLiteConnection(@"Data Source=Students.db;Version=3");
             conn.Open();
 
-            var cmd = new SQLiteCommand($@"INSERT INTO Student (Name, Address) VALUES ('{student.Name}','{student.Address}')", conn)
+            var cmd = new SQLiteCommand($@"INSERT INTO Student (Name, Address,Gender,Class,RollNo.,Status,Phone,Nationality,MotherName,FatherName,Description) 
+            VALUES ('{student.Name}','{student.Address}',{student.Gender},{student.Class},{student.RollNo},{student.Status},{student.Phone},
+            {student.Nationality},{student.MotherName},{student.FatherName},{student.Description})", conn)
             {
                 CommandType = System.Data.CommandType.Text
             };
