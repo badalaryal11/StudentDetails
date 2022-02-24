@@ -209,7 +209,7 @@ namespace StudentDetails
             Address = address;
             Gender = gender;
             Class = @class;
-            RollNo = RollNo;
+            RollNo = rollno;
             Status = status;
             Phone = phone;
             Nationality = nation;
