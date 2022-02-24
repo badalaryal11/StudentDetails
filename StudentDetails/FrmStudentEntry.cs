@@ -145,9 +145,11 @@ namespace StudentDetails
             {
                 MessageBox.Show(ex.Message);
             }
+
         }
     }
 }
+
 
 public class Student
 {

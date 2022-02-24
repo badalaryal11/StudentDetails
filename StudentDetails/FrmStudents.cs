@@ -16,38 +16,45 @@ namespace StudentDetails
         public FrmStudents()
         {
             InitializeComponent();
+            gridStudents.AutoGenerateColumns = false;
         }
+
 
         private async Task LoadDataAsync()
         {
 
-             var dictionary = new Dictionary<int, string>();
-            
+            var dictionary = new Dictionary<int, string>();
+
 
             try
+            {
+                using var conn = new SQLiteConnection(@"Data Source=Students.db;Version=3");
+                await conn.OpenAsync();
+
+                var cmd = new SQLiteCommand(@"SELECT * FROM Student", conn)
                 {
-                    using var conn = new SQLiteConnection(@"Data Source=Students.db;Version=3");
-                    await conn.OpenAsync();
+                    CommandType = System.Data.CommandType.Text
+                };
 
-                    var cmd = new SQLiteCommand(@"SELECT * FROM Student", conn)
-                    {
-                        CommandType = System.Data.CommandType.Text
-                    };
+                var reader = await cmd.ExecuteReaderAsync();
 
-                    var reader = await cmd.ExecuteReaderAsync();
-
-                    while (await reader.ReadAsync())
-                    {
+                while (await reader.ReadAsync())
+                {
                     dictionary.Add(Convert.ToInt32(reader["Id"]), (string)reader["Name"]);
-                    
-                            
-                    }
+
+
                 }
-                catch(Exception e)
-                {
-                    MessageBox.Show(e.Message);
-                }
-            
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+        ;
+
+
+
+
+
         }
 
 
@@ -56,128 +63,38 @@ namespace StudentDetails
             var form = new FrmStudentEntry();
             form.ShowDialog();
         }
+
         private async void vIEWToolStripMenuItem3_Click(object sender, EventArgs e)
         {
-            gridStudents.AutoGenerateColumns = false;
-            var studentList = new List<Student>();
+            gridStudents.DataSource = null;
+            var studentsList = new List<Student>();
 
-            studentList.Add(new Student
+            try
             {
-                Id = 1,
-                Name = "Rabi",
-                Address = "Jnk",
-                Gender = "Male",
-                Class = "12",
-                RollNo = 124,
-                Status = "Passed out",
-                Phone = "1234567890",
-                Nationality = "Nepali",
-                MotherName = "Sita",
-                FatherName = "Ram",
-                Description = " He is a good boy "
-            });
+                using var conn = new SQLiteConnection(@"Data Source=Students.db;Version=3");
+                await conn.OpenAsync();
+                var cmd = new SQLiteCommand("SELECT * FROM Student ", conn);
 
 
-            studentList.Add(new Student
-            {
-                Id = 2,
-                Name = "Badal",
-                Address = "Ktm",
-                Gender = "Male",
-                Class = "10",
-                RollNo = 125,
-                Status = "Passed out",
-                Phone = "09876",
-                Nationality = "Nepali",
-                MotherName = "Sita",
-                FatherName = "Ram",
-                Description = " He is a good boy "
-            });
-
-            studentList.AddRange(new List<Student>
-            {
-                new Student
+                var reader = await cmd.ExecuteReaderAsync();
+                while (await reader.ReadAsync())
                 {
-                    Id = 3,
-                    Name = "Ram",
-                    Address = "Ktm",
-                    Gender = "Male",
-                    Class = "11",
-                    RollNo = 125,
-                    Status = "Passed out",
-                    Phone = "0987698578",
-                    Nationality = "Foreign",
-                    MotherName = "Sita",
-                    FatherName = "Hari",
-                    Description = " He is a good boy "
-                },
-                new Student{
-                     Id = 4,
-                    Name = "Hari",
-                    Address = "Pkr",
-                    Gender = "Male",
-                    Class = "13",
-                    RollNo = 125,
-                    Status = "Passed out",
-                    Phone = "09876246809",
-                    Nationality = "Nepali",
-                    MotherName = "Sita",
-                    FatherName = "Ram",
-                    Description = " He is a good boy "
-                },
-                new Student
-                {
-                     Id = 5,
-                Name = "Deku",
-                Address = "Ktm",
-                Gender = "Male",
-                Class = "10",
-                RollNo = 125,
-                Status = "Current",
-                Phone = "0987624367887",
-                Nationality = "Nepali",
-                MotherName = "anita",
-                FatherName = "hum",
-                Description = " He is a good boy "
-                },
-                new Student
-                {
-                      Id = 6,
-                    Name = "Sita",
-                    Address = "Ktm",
-                    Gender = "Female",
-                    Class = "10",
-                    RollNo = 135,
-                    Status = "Current",
-                    Phone = "0987634567787",
-                    Nationality = "Nepali",
-                    MotherName = "Janaki",
-                    FatherName = "Janak",
-                    Description = "She is a good girl "
-                },
-                new Student
-                {
-                       Id = 7,
-                    Name = "Sia",
-                    Address = "Ktm",
-                    Gender = "Male",
-                    Class = "10",
-                    RollNo = 125,
-                    Status = "Passed out",
-                    Phone = "09876",
-                    Nationality = "Nepali",
-                    MotherName = "Katy",
-                    FatherName = "keta",
-                    Description = "She is a good girl "
+                    studentsList.Add(new Student
+                    {
+                        Id = Convert.ToInt32(reader["Id"]),
+                        Name = reader["Name"].ToString(),
+                        Address = reader["Address"].ToString(),
+                        Gender =  reader["Gender"]?.ToString() ?? "Not Defined"
+                    });
                 }
 
-            });
+                gridStudents.DataSource = studentsList;
+            }
+            catch (Exception ex)
+            {
 
-            gridStudents.DataSource = studentList;
-            
-            
+            }
         }
-        
 
     }
 
