@@ -129,7 +129,7 @@ namespace StudentDetails
                 cmd.Parameters.Add(new SQLiteParameter("@prRoll", student.RollNo));
                 cmd.Parameters.Add(new SQLiteParameter("@prStatus", student.Status));
                 cmd.Parameters.Add(new SQLiteParameter("@prPhone", student.Phone));
-                cmd.Parameters.Add(new SQLiteParameter("@rNationality", student.Nationality));
+                cmd.Parameters.Add(new SQLiteParameter("@prNationality", student.Nationality));
                 cmd.Parameters.Add(new SQLiteParameter("@prMother", student.MotherName));
                 cmd.Parameters.Add(new SQLiteParameter("@prFather", student.FatherName));
                 cmd.Parameters.Add(new SQLiteParameter("@prDescription", student.Description));
