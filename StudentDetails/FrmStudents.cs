@@ -84,8 +84,16 @@ namespace StudentDetails
                         Id = Convert.ToInt32(reader["Id"]),
                         Name = reader["Name"].ToString(),
                         Address = reader["Address"].ToString(),
-                        Gender =  reader["Gender"]?.ToString() ?? "Not Defined"
-                    });
+                        Gender = reader["Gender"]?.ToString() ?? "Not Defined",
+                        Class = reader["Class"].ToString(),
+                        RollNo = Convert.ToInt32(reader["RollNo"],
+                        Status = reader["Status"].ToString(),
+                        Phone = reader["Phone"].ToString(),
+                        Nationality = reader["Nationality"].ToString(),
+                        MotherName = reader["MotherName"].ToString(),
+                        FatherName = reader["FatherName"].ToString(),
+                        Description = reader["describe"].ToString()
+                    }) ;
                 }
 
                 gridStudents.DataSource = studentsList;
