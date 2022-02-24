@@ -21,9 +21,11 @@ namespace StudentDetails
         private async Task LoadDataAsync()
         {
 
-            /*  var dictionary = new Dictionary<int, string>();
+             var dictionary = new Dictionary<int, string>();
+            var dictionary1 = new Dictionary<int, string>();
 
-                try
+
+            try
                 {
                     using var conn = new SQLiteConnection(@"Data Source=Students.db;Version=3");
                     await conn.OpenAsync();
@@ -37,16 +39,16 @@ namespace StudentDetails
 
                     while (await reader.ReadAsync())
                     {
-                        dictionary.Add(Convert.ToInt32(reader["Id"]), (string)reader["Name"],(string)reader["Address"],
-                           (string)reader["Gender"],reader["Class"],reader["Roll No."],(string)reader["Status"],reader["Phone"],
-                            (string)reader["Nationality"], (string)reader["MotherName"], (string)reader["FatherName"], (string)reader["Description"]);
+                    dictionary.Add(Convert.ToInt32(reader["Id"]), (string)reader["Name"]);
+                    
+                            
                     }
                 }
                 catch(Exception e)
                 {
                     MessageBox.Show(e.Message);
                 }
-            */
+            
         }
 
 
@@ -152,7 +154,7 @@ namespace StudentDetails
                     Nationality = "Nepali",
                     MotherName = "Janaki",
                     FatherName = "Janak",
-                    Description = " She is a good girl "
+                    Description = "She is a good girl "
                 },
                 new Student
                 {
@@ -167,13 +169,16 @@ namespace StudentDetails
                     Nationality = "Nepali",
                     MotherName = "Katy",
                     FatherName = "keta",
-                    Description = " She is a good girl "
+                    Description = "She is a good girl "
                 }
 
             });
 
             gridStudents.DataSource = studentList;
+            
+            
         }
+        
 
     }
 

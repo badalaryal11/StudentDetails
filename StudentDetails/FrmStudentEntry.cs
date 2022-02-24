@@ -12,21 +12,23 @@ namespace StudentDetails
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
-           
-            
-          
 
-            if(string.IsNullOrWhiteSpace(txtName.Text))
+
+            //FrmStudentEntry frm2 = new FrmStudentEntry();
+            //gridStudents.Rows.Add()(txtName.Text,txtAddress.Text,txtGender.Text,txtclass.Text,txtRollNo.Text,)
+
+
+            if (string.IsNullOrWhiteSpace(txtName.Text))
             {
                 MessageBox.Show("Enter student name");
                 return;
             }
-           else if (string.IsNullOrWhiteSpace(txtAddress.Text))
+            else if (string.IsNullOrWhiteSpace(txtAddress.Text))
             {
                 MessageBox.Show("Enter student Address");
                 return;
             }
-           else if (string.IsNullOrWhiteSpace(txtGender.Text))
+            else if (string.IsNullOrWhiteSpace(txtGender.Text))
             {
                 MessageBox.Show("Enter student Gender");
                 return;
@@ -46,13 +48,13 @@ namespace StudentDetails
                 MessageBox.Show("Enter student Status");
                 return;
             }
-           else if (string.IsNullOrWhiteSpace(txtPhone.Text))
+            else if (string.IsNullOrWhiteSpace(txtPhone.Text))
             {
                 MessageBox.Show("Enter student phone");
                 return;
             }
 
-           else if (string.IsNullOrWhiteSpace(txtNationality.Text))
+            else if (string.IsNullOrWhiteSpace(txtNationality.Text))
             {
                 MessageBox.Show("Enter student Nationality");
                 return;
@@ -62,12 +64,12 @@ namespace StudentDetails
                 MessageBox.Show("Enter student Mother's name");
                 return;
             }
-           else if (string.IsNullOrWhiteSpace(txtFather.Text))
+            else if (string.IsNullOrWhiteSpace(txtFather.Text))
             {
                 MessageBox.Show("Enter student Father's Name");
                 return;
             }
-           else if (string.IsNullOrWhiteSpace(txtDescription.Text))
+            else if (string.IsNullOrWhiteSpace(txtDescription.Text))
             {
                 MessageBox.Show("Enter student Description");
                 return;
@@ -78,7 +80,8 @@ namespace StudentDetails
             var isInteger = int.TryParse(txtRollNo.Text.Trim(), out var intValue);
             if (isInteger == false)
             {
-
+                MessageBox.Show("Invalid roll number");
+                return;
             }
             else
             {
@@ -93,7 +96,7 @@ namespace StudentDetails
                 Address = txtAddress.Text.Trim(),
                 Gender = txtGender.Text.Trim(),
                 Class = txtclass.Text.Trim(),
-                RollNo = Convert.ToInt32(txtRollNo.Text.Trim()),
+                RollNo = intValue,
                 Status = txtStatus.Text.Trim(),
                 Phone = txtPhone.Text.Trim(),
                 Nationality = txtNationality.Text.Trim(),
@@ -103,37 +106,64 @@ namespace StudentDetails
             };
 
 
-            using var conn = new SQLiteConnection(@"Data Source=Students.db;Version=3");
-            conn.Open();
 
-            var cmd = new SQLiteCommand($@"INSERT INTO Student (Name, Address,Gender,Class,RollNo.,Status,Phone,Nationality,MotherName,FatherName,Description) 
-            VALUES ('{student.Name}','{student.Address}',{student.Gender},{student.Class},{student.RollNo},{student.Status},{student.Phone},
-            {student.Nationality},{student.MotherName},{student.FatherName},{student.Description})", conn)
+            try
             {
-                CommandType = System.Data.CommandType.Text
-            };
+                using var conn = new SQLiteConnection(@"Data Source=Students.db;Version=3");
+                conn.Open();
 
-            var rowsCount = cmd.ExecuteNonQuery();
-            conn.Close();
+
+                var cmd = new SQLiteCommand(
+                    $@"INSERT INTO Student (Name, Address,Gender,Class,RollNo,Status,Phone,Nationality,MotherName,FatherName,Description) 
+                   VALUES (@prName, @prAddress, @prGender, @prClass, @prRoll, @prStatus, @prPhone, @prNationality,
+                            @prMother, @prFather, @prDescription )", conn)
+                {
+                    CommandType = System.Data.CommandType.Text
+                };
+
+
+                cmd.Parameters.Add(new SQLiteParameter("@prName", student.Name));
+                cmd.Parameters.Add(new SQLiteParameter("@prAddress", student.Address));
+                cmd.Parameters.Add(new SQLiteParameter("@prGender", student.Gender));
+                cmd.Parameters.Add(new SQLiteParameter("@prClass", student.Class));
+                cmd.Parameters.Add(new SQLiteParameter("@prRoll", student.RollNo));
+                cmd.Parameters.Add(new SQLiteParameter("@prStatus", student.Status));
+                cmd.Parameters.Add(new SQLiteParameter("@prPhone", student.Phone));
+                cmd.Parameters.Add(new SQLiteParameter("@rNationality", student.Nationality));
+                cmd.Parameters.Add(new SQLiteParameter("@prMother", student.MotherName));
+                cmd.Parameters.Add(new SQLiteParameter("@prFather", student.FatherName));
+                cmd.Parameters.Add(new SQLiteParameter("@prDescription", student.Description));
+
+                var rowsCount = cmd.ExecuteNonQuery();
+                conn.Close();
+            }
+            catch (SQLiteException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }
 
-    public class Student
-    {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string Address { get; set; }
+public class Student
+{
+    public int Id { get; set; }
+    public string Name { get; set; }
+    public string Address { get; set; }
 
-        public string Gender { get; set; }
-        public string Class { get; set; }
-        public string RollNo { get; set; }
-        public string Status { get; set; }
+    public string Gender { get; set; }
+    public string Class { get; set; }
+    public string RollNo { get; set; }
+    public string Status { get; set; }
 
-        public string Phone { get; set; }
-        public string Nationality { get; set; }
-        public string MotherName { get; set; }
-        public string FatherName { get; set; }
-        public string Description { get; set; }
+    public string Phone { get; set; }
+    public string Nationality { get; set; }
+    public string MotherName { get; set; }
+    public string FatherName { get; set; }
+    public string Description { get; set; }
 
-    }
+}
