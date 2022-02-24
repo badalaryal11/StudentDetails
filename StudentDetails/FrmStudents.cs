@@ -47,82 +47,139 @@ namespace StudentDetails
                     MessageBox.Show(e.Message);
                 }
             */
-
-
-            [STAThread]
-            static void Main()
-            {
-                var student = new
-                {
-                    Id = 1,
-                    Name = "Rabi",
-                    Address = "Jnk",
-                    Gender = "Male",
-                    Class = "12",
-                    RollNo = "124",
-                    Status = "Passed out",
-                    Phone = "1234567890",
-                    Nationality = "Nepali",
-                    MotherName = "Sita",
-                    FatherName = "Ram",
-                    Description = " He is a good boy "
-
-
-
-
-
-                };
-                var student2 = new
-                {
-                    Id = 2,
-                    Name = "Badal",
-                    Address = "Ktm",
-                    Gender = "Male",
-                    Class = "10",
-                    RollNo = "125",
-                    Status = "Passed out",
-                    Phone = "09876",
-                    Nationality = "Nepali",
-                    MotherName = "Sita",
-                    FatherName = "Ram",
-                    Description = " He is a good boy "
-
-                };
-
-                //var student3 = new student(3, "Raju", "GMMM", "Male", "10", "132", "Passed out");
-                //var student4 
-
-
-
-                List<Student> s;
-                Dictionary<int, Student> dict;
-
-
-
-                Console.WriteLine(student);
-            }
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
 
         private void mnuNew_Click(object sender, EventArgs e)
         {
             var form = new FrmStudentEntry();
             form.ShowDialog();
         }
-
-`        private async void vIEWToolStripMenuItem3_Click(object sender, EventArgs e)
+        private async void vIEWToolStripMenuItem3_Click(object sender, EventArgs e)
         {
-            await LoadDataAsync();
+            gridStudents.AutoGenerateColumns = false;
+            var studentList = new List<Student>();
+
+            studentList.Add(new Student
+            {
+                Id = 1,
+                Name = "Rabi",
+                Address = "Jnk",
+                Gender = "Male",
+                Class = "12",
+                RollNo = 124,
+                Status = "Passed out",
+                Phone = "1234567890",
+                Nationality = "Nepali",
+                MotherName = "Sita",
+                FatherName = "Ram",
+                Description = " He is a good boy "
+            });
+
+
+            studentList.Add(new Student
+            {
+                Id = 2,
+                Name = "Badal",
+                Address = "Ktm",
+                Gender = "Male",
+                Class = "10",
+                RollNo = 125,
+                Status = "Passed out",
+                Phone = "09876",
+                Nationality = "Nepali",
+                MotherName = "Sita",
+                FatherName = "Ram",
+                Description = " He is a good boy "
+            });
+
+            studentList.AddRange(new List<Student>
+            {
+                new Student
+                {
+                    Id = 3,
+                    Name = "Ram",
+                    Address = "Ktm",
+                    Gender = "Male",
+                    Class = "11",
+                    RollNo = 125,
+                    Status = "Passed out",
+                    Phone = "0987698578",
+                    Nationality = "Foreign",
+                    MotherName = "Sita",
+                    FatherName = "Hari",
+                    Description = " He is a good boy "
+                },
+                new Student{
+                     Id = 4,
+                    Name = "Hari",
+                    Address = "Pkr",
+                    Gender = "Male",
+                    Class = "13",
+                    RollNo = 125,
+                    Status = "Passed out",
+                    Phone = "09876246809",
+                    Nationality = "Nepali",
+                    MotherName = "Sita",
+                    FatherName = "Ram",
+                    Description = " He is a good boy "
+                },
+                new Student
+                {
+                     Id = 5,
+                Name = "Deku",
+                Address = "Ktm",
+                Gender = "Male",
+                Class = "10",
+                RollNo = 125,
+                Status = "Current",
+                Phone = "0987624367887",
+                Nationality = "Nepali",
+                MotherName = "anita",
+                FatherName = "hum",
+                Description = " He is a good boy "
+                },
+                new Student
+                {
+                      Id = 6,
+                    Name = "Sita",
+                    Address = "Ktm",
+                    Gender = "Female",
+                    Class = "10",
+                    RollNo = 135,
+                    Status = "Current",
+                    Phone = "0987634567787",
+                    Nationality = "Nepali",
+                    MotherName = "Janaki",
+                    FatherName = "Janak",
+                    Description = " She is a good girl "
+                },
+                new Student
+                {
+                       Id = 7,
+                    Name = "Sia",
+                    Address = "Ktm",
+                    Gender = "Male",
+                    Class = "10",
+                    RollNo = 125,
+                    Status = "Passed out",
+                    Phone = "09876",
+                    Nationality = "Nepali",
+                    MotherName = "Katy",
+                    FatherName = "keta",
+                    Description = " She is a good girl "
+                }
+
+            });
+
+            gridStudents.DataSource = studentList;
         }
 
     }
 
 
-    public abstract class StudentBase { 
+    public abstract class StudentBase
+    {
     }
 
     public class Student
@@ -173,5 +230,7 @@ namespace StudentDetails
             Name = name;
             Class = className.ToString();
         }
+
     }
+
 }
