@@ -22,8 +22,7 @@ namespace StudentDetails
         {
 
              var dictionary = new Dictionary<int, string>();
-            var dictionary1 = new Dictionary<int, string>();
-
+            
 
             try
                 {
