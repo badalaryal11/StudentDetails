@@ -204,6 +204,7 @@
             // 
             // GENDER
             // 
+            this.GENDER.DataPropertyName = "Gender";
             this.GENDER.Frozen = true;
             this.GENDER.HeaderText = "GENDER";
             this.GENDER.Name = "GENDER";
@@ -211,6 +212,7 @@
             // 
             // CLASS
             // 
+            this.CLASS.DataPropertyName = "Class";
             this.CLASS.Frozen = true;
             this.CLASS.HeaderText = "CLASS";
             this.CLASS.Name = "CLASS";
@@ -218,6 +220,7 @@
             // 
             // ROLLNO
             // 
+            this.ROLLNO.DataPropertyName = "RollNo";
             this.ROLLNO.Frozen = true;
             this.ROLLNO.HeaderText = "ROLLNO.";
             this.ROLLNO.Name = "ROLLNO";
@@ -225,6 +228,7 @@
             // 
             // STATUS
             // 
+            this.STATUS.DataPropertyName = "Status";
             this.STATUS.Frozen = true;
             this.STATUS.HeaderText = "STATUS";
             this.STATUS.Name = "STATUS";
@@ -232,6 +236,7 @@
             // 
             // PHONE
             // 
+            this.PHONE.DataPropertyName = "Phone";
             this.PHONE.Frozen = true;
             this.PHONE.HeaderText = "PHONE";
             this.PHONE.Name = "PHONE";
@@ -239,6 +244,7 @@
             // 
             // NATIONALITY
             // 
+            this.NATIONALITY.DataPropertyName = "Nationality";
             this.NATIONALITY.Frozen = true;
             this.NATIONALITY.HeaderText = "NATIONALITY";
             this.NATIONALITY.Name = "NATIONALITY";
@@ -255,6 +261,7 @@
             // MOTHERNAME
             // 
             this.MOTHERNAME.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.MOTHERNAME.DataPropertyName = "MotherName";
             this.MOTHERNAME.HeaderText = "MOTHER NAME";
             this.MOTHERNAME.Name = "MOTHERNAME";
             this.MOTHERNAME.ReadOnly = true;
@@ -262,6 +269,7 @@
             // DESCRIPTION
             // 
             this.DESCRIPTION.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.DESCRIPTION.DataPropertyName = "Description";
             this.DESCRIPTION.HeaderText = "DESCRIPTION";
             this.DESCRIPTION.Name = "DESCRIPTION";
             this.DESCRIPTION.ReadOnly = true;
