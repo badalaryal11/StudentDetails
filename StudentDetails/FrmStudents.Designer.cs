@@ -54,6 +54,7 @@
             this.mnuNew = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuUpdate = new System.Windows.Forms.ToolStripMenuItem();
             this.vIEWToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.gridStudents)).BeginInit();
             this.mnuRegister.SuspendLayout();
             this.contextMenuStrip2.SuspendLayout();
@@ -79,13 +80,13 @@
             this.MOTHERNAME,
             this.DESCRIPTION});
             this.gridStudents.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridStudents.Location = new System.Drawing.Point(0, 0);
+            this.gridStudents.Location = new System.Drawing.Point(0, 24);
             this.gridStudents.MultiSelect = false;
             this.gridStudents.Name = "gridStudents";
             this.gridStudents.ReadOnly = true;
             this.gridStudents.RowTemplate.Height = 25;
             this.gridStudents.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridStudents.Size = new System.Drawing.Size(1029, 475);
+            this.gridStudents.Size = new System.Drawing.Size(1029, 451);
             this.gridStudents.TabIndex = 0;
             this.gridStudents.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridStudents_CellContentClick);
             // 
@@ -275,13 +276,18 @@
             this.vIEWToolStripMenuItem3.Text = "VIEW";
             this.vIEWToolStripMenuItem3.Click += new System.EventHandler(this.vIEWToolStripMenuItem3_Click);
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
             // FrmStudents
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1029, 475);
-            this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.gridStudents);
+            this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FrmStudents";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -325,5 +331,6 @@
         private DataGridViewTextBoxColumn MOTHERNAME;
         private DataGridViewTextBoxColumn DESCRIPTION;
         private TextBox textBox1;
+        private ContextMenuStrip contextMenuStrip1;
     }
 }

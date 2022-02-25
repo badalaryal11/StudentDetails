@@ -96,33 +96,30 @@ namespace StudentDetails
                         Description = reader["Description"].ToString()
                     });
                 }
+                gridStudents.DataSource = studentsList;
             }
 
-            /*    gridStudents.DataSource = studentsList;
-                conn.Open();
-                SQLiteCommand comm = new SQLiteCommand("Select * From Patients", conn);
-                using (SQLiteDataReader read = comm.ExecuteReader())
-                {
-                    while (read.Read())
-                    {
-                        gridStudents.Rows.Add(new object[] {
-            read.GetValue(0),  // U can use column index
-            read.GetValue(1),  // Or column name like this
-            read.GetValue(2),
-            read.GetValue(3),
-            read.GetValue(4),
-            read.GetValue(5),
-            read.GetValue(6),
-            read.GetValue(7),
-            read.GetValue(8),
-            read.GetValue(9),
-            read.GetValue(10),
-            read.GetValue(11)
-            })*/
 
-
-
-
+            //    conn.Open();
+            //    SQLiteCommand comm = new SQLiteCommand("Select * From Patients", conn);
+            //    using (SQLiteDataReader read = comm.ExecuteReader())
+            //    {
+            //        while (read.Read())
+            //        {
+            //            gridStudents.Rows.Add(new object[] {
+            //read.GetValue(0),  // U can use column index
+            //read.GetValue(1),  // Or column name like this
+            //read.GetValue(2),
+            //read.GetValue(3),
+            //read.GetValue(4),
+            //read.GetValue(5),
+            //read.GetValue(6),
+            //read.GetValue(7),
+            //read.GetValue(8),
+            //read.GetValue(9),
+            //read.GetValue(10),
+            //read.GetValue(11)
+            //})*/
 
             catch (Exception ex)
             {
@@ -177,18 +174,9 @@ namespace StudentDetails
         {
 
         }
+        
 
-        public Student(string name, string className)
-        {
-            Name = name;
-            Class = className;
-        }
-
-        public Student(string name, int className)
-        {
-            Name = name;
-            Class = className.ToString();
-        }
+        
 
     }
 
