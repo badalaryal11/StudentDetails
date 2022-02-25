@@ -86,7 +86,7 @@ namespace StudentDetails
                         Address = reader["Address"].ToString(),
                         Gender = reader["Gender"]?.ToString() ?? "Not Defined",
                         Class = reader["Class"].ToString(),
-                        RollNo = Convert.ToInt32(reader["RollNo"],
+                        RollNo = Convert.ToInt32(reader["RollNo"]),
                         Status = reader["Status"].ToString(),
                         Phone = reader["Phone"].ToString(),
                         Nationality = reader["Nationality"].ToString(),
