@@ -76,6 +76,7 @@ namespace StudentDetails
                 var cmd = new SQLiteCommand("SELECT * FROM Student ", conn);
 
 
+
                 var reader = await cmd.ExecuteReaderAsync();
                 while (await reader.ReadAsync())
                 {
@@ -92,18 +93,47 @@ namespace StudentDetails
                         Nationality = reader["Nationality"].ToString(),
                         MotherName = reader["MotherName"].ToString(),
                         FatherName = reader["FatherName"].ToString(),
-                        Description = reader["describe"].ToString()
-                    }) ;
+                        Description = reader["Description"].ToString()
+                    });
                 }
-
-                gridStudents.DataSource = studentsList;
             }
+
+            /*    gridStudents.DataSource = studentsList;
+                conn.Open();
+                SQLiteCommand comm = new SQLiteCommand("Select * From Patients", conn);
+                using (SQLiteDataReader read = comm.ExecuteReader())
+                {
+                    while (read.Read())
+                    {
+                        gridStudents.Rows.Add(new object[] {
+            read.GetValue(0),  // U can use column index
+            read.GetValue(1),  // Or column name like this
+            read.GetValue(2),
+            read.GetValue(3),
+            read.GetValue(4),
+            read.GetValue(5),
+            read.GetValue(6),
+            read.GetValue(7),
+            read.GetValue(8),
+            read.GetValue(9),
+            read.GetValue(10),
+            read.GetValue(11)
+            })*/
+
+
+
+
+
             catch (Exception ex)
             {
 
             }
         }
 
+        private void gridStudents_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 
 
