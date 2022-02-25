@@ -131,6 +131,36 @@ namespace StudentDetails
         {
 
         }
+
+       
+
+        
+
+        private void mnuSearch_Click(object sender, EventArgs e)
+        {
+            string searchValue = txtboxSearch.Text;
+            int rowIndex = -1;
+
+            gridStudents.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            try
+            {
+                foreach (DataGridViewRow row in gridStudents.Rows)
+                {
+                    if (row.Cells[row.Index].Value.ToString().Equals(searchValue))
+                    {
+                        rowIndex = row.Index;
+                        gridStudents.Rows[row.Index].Selected = true;
+                        break;
+                    }
+                }
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.Message);
+            }
+
+        }
+    }
     }
 
 
@@ -180,4 +210,4 @@ namespace StudentDetails
 
     }
 
-}
+

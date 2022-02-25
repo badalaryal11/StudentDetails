@@ -55,6 +55,9 @@
             this.mnuUpdate = new System.Windows.Forms.ToolStripMenuItem();
             this.vIEWToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.contextMenuStrip3 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.mnuSearch = new System.Windows.Forms.ToolStripMenuItem();
+            this.txtboxSearch = new System.Windows.Forms.ToolStripTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.gridStudents)).BeginInit();
             this.mnuRegister.SuspendLayout();
             this.contextMenuStrip2.SuspendLayout();
@@ -80,13 +83,13 @@
             this.MOTHERNAME,
             this.DESCRIPTION});
             this.gridStudents.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridStudents.Location = new System.Drawing.Point(0, 24);
+            this.gridStudents.Location = new System.Drawing.Point(0, 27);
             this.gridStudents.MultiSelect = false;
             this.gridStudents.Name = "gridStudents";
             this.gridStudents.ReadOnly = true;
             this.gridStudents.RowTemplate.Height = 25;
             this.gridStudents.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridStudents.Size = new System.Drawing.Size(1029, 451);
+            this.gridStudents.Size = new System.Drawing.Size(1029, 448);
             this.gridStudents.TabIndex = 0;
             this.gridStudents.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridStudents_CellContentClick);
             // 
@@ -211,10 +214,12 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fILEToolStripMenuItem,
             this.vIEWToolStripMenuItem2,
-            this.vIEWToolStripMenuItem3});
+            this.vIEWToolStripMenuItem3,
+            this.txtboxSearch,
+            this.mnuSearch});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1029, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1029, 27);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -225,25 +230,25 @@
             this.sAVEToolStripMenuItem,
             this.sAVEASToolStripMenuItem});
             this.fILEToolStripMenuItem.Name = "fILEToolStripMenuItem";
-            this.fILEToolStripMenuItem.Size = new System.Drawing.Size(40, 20);
+            this.fILEToolStripMenuItem.Size = new System.Drawing.Size(40, 23);
             this.fILEToolStripMenuItem.Text = "FILE";
             // 
             // oPENToolStripMenuItem
             // 
             this.oPENToolStripMenuItem.Name = "oPENToolStripMenuItem";
-            this.oPENToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
+            this.oPENToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.oPENToolStripMenuItem.Text = "OPEN";
             // 
             // sAVEToolStripMenuItem
             // 
             this.sAVEToolStripMenuItem.Name = "sAVEToolStripMenuItem";
-            this.sAVEToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
+            this.sAVEToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.sAVEToolStripMenuItem.Text = "SAVE";
             // 
             // sAVEASToolStripMenuItem
             // 
             this.sAVEASToolStripMenuItem.Name = "sAVEASToolStripMenuItem";
-            this.sAVEASToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
+            this.sAVEASToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.sAVEASToolStripMenuItem.Text = "SAVE AS";
             // 
             // vIEWToolStripMenuItem2
@@ -252,7 +257,7 @@
             this.mnuNew,
             this.mnuUpdate});
             this.vIEWToolStripMenuItem2.Name = "vIEWToolStripMenuItem2";
-            this.vIEWToolStripMenuItem2.Size = new System.Drawing.Size(42, 20);
+            this.vIEWToolStripMenuItem2.Size = new System.Drawing.Size(42, 23);
             this.vIEWToolStripMenuItem2.Text = "EDIT";
             // 
             // mnuNew
@@ -272,7 +277,7 @@
             // vIEWToolStripMenuItem3
             // 
             this.vIEWToolStripMenuItem3.Name = "vIEWToolStripMenuItem3";
-            this.vIEWToolStripMenuItem3.Size = new System.Drawing.Size(46, 20);
+            this.vIEWToolStripMenuItem3.Size = new System.Drawing.Size(46, 23);
             this.vIEWToolStripMenuItem3.Text = "VIEW";
             this.vIEWToolStripMenuItem3.Click += new System.EventHandler(this.vIEWToolStripMenuItem3_Click);
             // 
@@ -280,6 +285,23 @@
             // 
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
+            // contextMenuStrip3
+            // 
+            this.contextMenuStrip3.Name = "contextMenuStrip3";
+            this.contextMenuStrip3.Size = new System.Drawing.Size(61, 4);
+            // 
+            // mnuSearch
+            // 
+            this.mnuSearch.Name = "mnuSearch";
+            this.mnuSearch.Size = new System.Drawing.Size(54, 23);
+            this.mnuSearch.Text = "Search";
+            this.mnuSearch.Click += new System.EventHandler(this.mnuSearch_Click);
+            // 
+            // txtboxSearch
+            // 
+            this.txtboxSearch.Name = "txtboxSearch";
+            this.txtboxSearch.Size = new System.Drawing.Size(100, 23);
             // 
             // FrmStudents
             // 
@@ -330,7 +352,10 @@
         private DataGridViewTextBoxColumn FATHERNAME;
         private DataGridViewTextBoxColumn MOTHERNAME;
         private DataGridViewTextBoxColumn DESCRIPTION;
-        private TextBox textBox1;
+       
         private ContextMenuStrip contextMenuStrip1;
+        private ContextMenuStrip contextMenuStrip3;
+        private ToolStripTextBox txtboxSearch;
+        private ToolStripMenuItem mnuSearch;
     }
 }
