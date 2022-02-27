@@ -293,9 +293,11 @@
             // 
             // txtboxSearch
             // 
+            this.txtboxSearch.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.txtboxSearch.Name = "txtboxSearch";
             this.txtboxSearch.ReadOnly = true;
             this.txtboxSearch.Size = new System.Drawing.Size(100, 23);
+            this.txtboxSearch.Click += new System.EventHandler(this.txtboxSearch_Click);
             // 
             // mnuSearch
             // 
@@ -316,12 +318,12 @@
             // sortDesc
             // 
             this.sortDesc.Name = "sortDesc";
-            this.sortDesc.Size = new System.Drawing.Size(67, 22);
+            this.sortDesc.Size = new System.Drawing.Size(180, 22);
             // 
             // sortAsc
             // 
             this.sortAsc.Name = "sortAsc";
-            this.sortAsc.Size = new System.Drawing.Size(67, 22);
+            this.sortAsc.Size = new System.Drawing.Size(180, 22);
             // 
             // contextMenuStrip1
             // 
