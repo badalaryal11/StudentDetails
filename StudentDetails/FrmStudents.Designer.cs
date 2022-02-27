@@ -268,14 +268,14 @@
             // mnuNew
             // 
             this.mnuNew.Name = "mnuNew";
-            this.mnuNew.Size = new System.Drawing.Size(180, 22);
+            this.mnuNew.Size = new System.Drawing.Size(116, 22);
             this.mnuNew.Text = "NEW";
             this.mnuNew.Click += new System.EventHandler(this.mnuNew_Click);
             // 
             // mnuUpdate
             // 
             this.mnuUpdate.Name = "mnuUpdate";
-            this.mnuUpdate.Size = new System.Drawing.Size(180, 22);
+            this.mnuUpdate.Size = new System.Drawing.Size(116, 22);
             this.mnuUpdate.Text = "UPDATE";
             this.mnuUpdate.Click += new System.EventHandler(this.mnuNew_Click);
             // 
