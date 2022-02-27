@@ -66,7 +66,7 @@ namespace StudentDetails
 
         private async void vIEWToolStripMenuItem3_Click(object sender, EventArgs e)
         {
-            gridStudents.DataSource = null;
+           gridStudents.DataSource = null;
             var studentsList = new List<Student>();
 
             try
@@ -119,29 +119,9 @@ namespace StudentDetails
 
         private void mnuSearch_Click(object sender, EventArgs e)
         {
-           //// gridStudents.DataSource = null;
-           // var studentsList = new List<Student>();
-           // try
-           // {
-           //     using var conn = new SQLiteConnection(@"Data Source=Students.db;Version=3");
-           //     conn.Open();
-           //     var cmd = new SQLiteCommand("SELECT * FROM Student WHERE NAME LIKE  '%txtboxSearch.Text%'", conn);
+           
 
-
-           // }
-           // catch (Exception ex)
-           // {
-           //     MessageBox.Show("Record is not avalable for this Name:\t" + txtboxSearch.Text, "Not Found");
-
-           // }
-
-
-
-        }// menu to search
-
-
-            //string insSQL2 ="select * from Student where Name Like "'" + txtboxSearch.Text + "'";
-
+        }
 
 
 
