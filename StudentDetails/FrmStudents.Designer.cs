@@ -95,7 +95,6 @@
             this.gridStudents.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridStudents.Size = new System.Drawing.Size(1029, 448);
             this.gridStudents.TabIndex = 0;
-           // this.gridStudents.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridRow);
             // 
             // NAME
             // 
@@ -269,14 +268,14 @@
             // mnuNew
             // 
             this.mnuNew.Name = "mnuNew";
-            this.mnuNew.Size = new System.Drawing.Size(116, 22);
+            this.mnuNew.Size = new System.Drawing.Size(180, 22);
             this.mnuNew.Text = "NEW";
             this.mnuNew.Click += new System.EventHandler(this.mnuNew_Click);
             // 
             // mnuUpdate
             // 
             this.mnuUpdate.Name = "mnuUpdate";
-            this.mnuUpdate.Size = new System.Drawing.Size(116, 22);
+            this.mnuUpdate.Size = new System.Drawing.Size(180, 22);
             this.mnuUpdate.Text = "UPDATE";
             this.mnuUpdate.Click += new System.EventHandler(this.mnuNew_Click);
             // 
@@ -302,7 +301,7 @@
             this.mnuSearch.Name = "mnuSearch";
             this.mnuSearch.Size = new System.Drawing.Size(54, 23);
             this.mnuSearch.Text = "Search";
-           this.mnuSearch.Click += new System.EventHandler(this.mnuSearch_Click);
+            this.mnuSearch.Click += new System.EventHandler(this.mnuSearch_Click);
             // 
             // sortToolStripMenuItem
             // 

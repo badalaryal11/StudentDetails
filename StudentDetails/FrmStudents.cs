@@ -66,7 +66,7 @@ namespace StudentDetails
 
         private async void vIEWToolStripMenuItem3_Click(object sender, EventArgs e)
         {
-           gridStudents.DataSource = null;
+            gridStudents.DataSource = null;
             var studentsList = new List<Student>();
 
             try
@@ -82,7 +82,7 @@ namespace StudentDetails
                 {
                     studentsList.Add(new Student
                     {
-                        Id = Convert.ToInt32(reader["Id"]),
+                        Id = Convert.ToInt32(reader["Id"].ToString()),
                         Name = reader["Name"].ToString(),
                         Address = reader["Address"].ToString(),
                         Gender = reader["Gender"]?.ToString() ?? "Not Defined",
@@ -95,8 +95,9 @@ namespace StudentDetails
                         FatherName = reader["FatherName"].ToString(),
                         Description = reader["Description"].ToString()
                     });
+
+                    gridStudents.DataSource = studentsList;
                 }
-                gridStudents.DataSource = studentsList;
 
             }
 
@@ -107,7 +108,7 @@ namespace StudentDetails
             {
                 MessageBox.Show(ex.Message);
 
-               
+
 
             }
         }
@@ -119,7 +120,7 @@ namespace StudentDetails
 
         private void mnuSearch_Click(object sender, EventArgs e)
         {
-           
+        
 
         }
 
@@ -195,7 +196,14 @@ namespace StudentDetails
             }
 
         }
-    } }
+
+        private void mnuUpdate_Click(object sender, EventArgs e)
+        {
+            var form = new FrmStudentEntry();
+            form.ShowDialog();
+        }
+    }
+}
     
 
 

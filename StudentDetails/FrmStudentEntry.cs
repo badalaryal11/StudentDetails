@@ -88,10 +88,12 @@ namespace StudentDetails
                 // true
                 var rollNo = intValue;
             }
+            
 
+            var student = new Student
 
-            var student = new StudentInfo
             {
+                Id = intValue,
                 Name = txtName.Text.Trim(),
                 Address = txtAddress.Text.Trim(),
                 Gender = txtGender.Text.Trim(),
@@ -151,7 +153,7 @@ namespace StudentDetails
 }
 
 
-public class StudentInfo
+public class Student
 {
     public int Id { get; set; }
     public string Name { get; set; }
