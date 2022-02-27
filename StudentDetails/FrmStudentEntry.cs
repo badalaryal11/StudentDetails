@@ -114,7 +114,7 @@ namespace StudentDetails
 
 
                 var cmd = new SQLiteCommand(
-                    $@"INSERT INTO Student (,Name, Address,Gender,Class,RollNo,Status,Phone,Nationality,MotherName,FatherName,Description) 
+                    $@"INSERT INTO Student (Name, Address,Gender,Class,RollNo,Status,Phone,Nationality,MotherName,FatherName,Description) 
                    VALUES (@prName, @prAddress, @prGender, @prClass, @prRoll, @prStatus, @prPhone, @prNationality,
                             @prMother, @prFather, @prDescription )", conn)
                 {
