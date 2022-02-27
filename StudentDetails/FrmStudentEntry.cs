@@ -90,7 +90,7 @@ namespace StudentDetails
             }
 
 
-            var student = new Student()
+            var student = new StudentInfo
             {
                 Name = txtName.Text.Trim(),
                 Address = txtAddress.Text.Trim(),
@@ -114,14 +114,14 @@ namespace StudentDetails
 
 
                 var cmd = new SQLiteCommand(
-                    $@"INSERT INTO Student (Name, Address,Gender,Class,RollNo,Status,Phone,Nationality,MotherName,FatherName,Description) 
+                    $@"INSERT INTO Student (,Name, Address,Gender,Class,RollNo,Status,Phone,Nationality,MotherName,FatherName,Description) 
                    VALUES (@prName, @prAddress, @prGender, @prClass, @prRoll, @prStatus, @prPhone, @prNationality,
                             @prMother, @prFather, @prDescription )", conn)
                 {
                     CommandType = System.Data.CommandType.Text
                 };
 
-
+               
                 cmd.Parameters.Add(new SQLiteParameter("@prName", student.Name));
                 cmd.Parameters.Add(new SQLiteParameter("@prAddress", student.Address));
                 cmd.Parameters.Add(new SQLiteParameter("@prGender", student.Gender));
@@ -151,7 +151,7 @@ namespace StudentDetails
 }
 
 
-public class Student
+public class StudentInfo
 {
     public int Id { get; set; }
     public string Name { get; set; }

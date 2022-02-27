@@ -105,6 +105,9 @@ namespace StudentDetails
 
             catch (Exception ex)
             {
+                MessageBox.Show(ex.Message);
+
+               
 
             }
         }
@@ -114,68 +117,30 @@ namespace StudentDetails
 
 
 
-        private void mnuSearch_Click(object sender, EventArgs e) // menu to search
-
+        private void mnuSearch_Click(object sender, EventArgs e)
         {
-            gridStudents.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            //string insSQL2 ="select * from Student where Name Like "'" + txtboxSearch.Text + "'";
-            //
-            //
-            //^^ here                   ^^ here
+            gridStudents.DataSource = null;
+            var studentsList = new List<Student>();
             try
             {
                 using var conn = new SQLiteConnection(@"Data Source=Students.db;Version=3");
                 conn.Open();
-                var cmd = new SQLiteCommand("SELECT * FROM Student where Name Like " + txtboxSearch.Text, conn);
-                var reader = cmd.ExecuteReader();
-                //this one is depending on the position of cell or column
-            }                     //string first_row_data=dataGridView1.Rows[0].Cells[0].Value.ToString() ;
+                var cmd = new SQLiteCommand("SELECT * FROM Student WHERE NAME LIKE  '%txtboxSearch.Text%'", conn);
 
 
-
-
-
-            catch (Exception exc)
+            }
+            catch (Exception ex)
             {
-                MessageBox.Show(exc.Message);
+                MessageBox.Show("Record is not avalable for this Name:\t" + txtboxSearch.Text, "Not Found");
+
             }
 
 
 
+        }// menu to search
 
 
-
-
-
-            /* string searchValue = txtboxSearch.Text;
-             int rowIndex = 1;  //this one is depending on the position of cell or column
-                                //string first_row_data=dataGridView1.Rows[0].Cells[0].Value.ToString() ;
-
-             gridStudents.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-             try
-             {
-                 bool valueResulet = true;
-                 foreach (DataGridViewRow row in gridStudents.Rows)
-                 {
-                     if (row.Cells[rowIndex].Value.ToString().Equals(searchValue))
-                     {
-                         rowIndex = row.Index;
-                         gridStudents.Rows[rowIndex].Selected = true;
-                         rowIndex++;
-                         valueResulet = false;
-                         continue;
-                     }
-                 }
-                 if (valueResulet != false)
-                 {
-                     MessageBox.Show("Record is not avalable for this Name:\t" + txtboxSearch.Text, "Not Found");
-                     return;
-                 }
-             }
-             catch (Exception exc)
-             {
-                 MessageBox.Show(exc.Message);
-             }*/
+            //string insSQL2 ="select * from Student where Name Like "'" + txtboxSearch.Text + "'";
 
 
 
@@ -186,17 +151,14 @@ namespace StudentDetails
 
 
 
-            /*  private void sortDesc_Click(object sender, EventArgs e)//mnu sort descending
-              {
-                  gridStudents.Sort(gridStudents.Columns[1]); ListSortDirection.Descending);
-              }
 
-              private void sortAsc_Click(object sender, EventArgs e)
-              {
-                  gridStudents.Sort(gridStudents.Columns[1]); ListSortDirection.Ascending)//mnu sort ascending
-              }*/
 
-        }
+
+
+
+
+
+
 
 
 
@@ -253,7 +215,8 @@ namespace StudentDetails
             }
 
         }
-    }
-    }
+    } }
+    
+
 
 
