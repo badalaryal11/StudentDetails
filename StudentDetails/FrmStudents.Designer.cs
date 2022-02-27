@@ -294,6 +294,7 @@
             // txtboxSearch
             // 
             this.txtboxSearch.Name = "txtboxSearch";
+            this.txtboxSearch.ReadOnly = true;
             this.txtboxSearch.Size = new System.Drawing.Size(100, 23);
             // 
             // mnuSearch

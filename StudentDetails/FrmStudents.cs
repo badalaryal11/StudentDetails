@@ -49,7 +49,7 @@ namespace StudentDetails
             {
                 MessageBox.Show(e.Message);
             }
-        ;
+        
 
 
 
@@ -147,6 +147,7 @@ namespace StudentDetails
 
 
 
+
         public abstract class StudentBase
         {
         }
@@ -198,11 +199,7 @@ namespace StudentDetails
 
         }
 
-        private void mnuUpdate_Click(object sender, EventArgs e)
-        {
-            var form = new FrmStudentEntry();
-            form.ShowDialog();
-        }
+       
     }
 }
     
