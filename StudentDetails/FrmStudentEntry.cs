@@ -33,7 +33,7 @@ namespace StudentDetails
                 MessageBox.Show("Enter student Gender");
                 return;
             }
-            else if (string.IsNullOrWhiteSpace(txtclass.Text))
+             if (string.IsNullOrWhiteSpace(txtclass.Text))
             {
                 MessageBox.Show("Enter student class");
                 return;
@@ -90,7 +90,7 @@ namespace StudentDetails
             }
 
 
-            var student = new Student
+            var student = new Student()
             {
                 Name = txtName.Text.Trim(),
                 Address = txtAddress.Text.Trim(),
@@ -151,7 +151,7 @@ namespace StudentDetails
 }
 
 
-public class StudentInfo
+public class Student
 {
     public int Id { get; set; }
     public string Name { get; set; }
@@ -159,7 +159,7 @@ public class StudentInfo
 
     public string Gender { get; set; }
     public string Class { get; set; }
-    public string RollNo { get; set; }
+    public int RollNo { get; set; }
     public string Status { get; set; }
 
     public string Phone { get; set; }

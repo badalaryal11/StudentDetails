@@ -97,29 +97,11 @@ namespace StudentDetails
                     });
                 }
                 gridStudents.DataSource = studentsList;
+
             }
 
 
-            //    conn.Open();
-            //    SQLiteCommand comm = new SQLiteCommand("Select * From Patients", conn);
-            //    using (SQLiteDataReader read = comm.ExecuteReader())
-            //    {
-            //        while (read.Read())
-            //        {
-            //            gridStudents.Rows.Add(new object[] {
-            //read.GetValue(0),  // U can use column index
-            //read.GetValue(1),  // Or column name like this
-            //read.GetValue(2),
-            //read.GetValue(3),
-            //read.GetValue(4),
-            //read.GetValue(5),
-            //read.GetValue(6),
-            //read.GetValue(7),
-            //read.GetValue(8),
-            //read.GetValue(9),
-            //read.GetValue(10),
-            //read.GetValue(11)
-            //})*/
+
 
             catch (Exception ex)
             {
@@ -127,87 +109,151 @@ namespace StudentDetails
             }
         }
 
-        private void gridStudents_CellContentClick(object sender, DataGridViewCellEventArgs e)
+
+
+
+
+
+        private void mnuSearch_Click(object sender, EventArgs e) // menu to search
+
         {
-
-        }
-
-       
-
-        
-
-        private void mnuSearch_Click(object sender, EventArgs e)
-        {
-            string searchValue = txtboxSearch.Text;
-            int rowIndex = -1;
-
             gridStudents.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            //string insSQL2 ="select * from Student where Name Like "'" + txtboxSearch.Text + "'";
+            //
+            //
+            //^^ here                   ^^ here
             try
             {
-                foreach (DataGridViewRow row in gridStudents.Rows)
-                {
-                    if (row.Cells[row.Index].Value.ToString().Equals(searchValue))
-                    {
-                        rowIndex = row.Index;
-                        gridStudents.Rows[row.Index].Selected = true;
-                        break;
-                    }
-                }
-            }
+                using var conn = new SQLiteConnection(@"Data Source=Students.db;Version=3");
+                conn.Open();
+                var cmd = new SQLiteCommand("SELECT * FROM Student where Name Like " + txtboxSearch.Text, conn);
+                var reader = cmd.ExecuteReader();
+                //this one is depending on the position of cell or column
+            }                     //string first_row_data=dataGridView1.Rows[0].Cells[0].Value.ToString() ;
+
+
+
+
+
             catch (Exception exc)
             {
                 MessageBox.Show(exc.Message);
             }
 
+
+
+
+
+
+
+
+            /* string searchValue = txtboxSearch.Text;
+             int rowIndex = 1;  //this one is depending on the position of cell or column
+                                //string first_row_data=dataGridView1.Rows[0].Cells[0].Value.ToString() ;
+
+             gridStudents.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+             try
+             {
+                 bool valueResulet = true;
+                 foreach (DataGridViewRow row in gridStudents.Rows)
+                 {
+                     if (row.Cells[rowIndex].Value.ToString().Equals(searchValue))
+                     {
+                         rowIndex = row.Index;
+                         gridStudents.Rows[rowIndex].Selected = true;
+                         rowIndex++;
+                         valueResulet = false;
+                         continue;
+                     }
+                 }
+                 if (valueResulet != false)
+                 {
+                     MessageBox.Show("Record is not avalable for this Name:\t" + txtboxSearch.Text, "Not Found");
+                     return;
+                 }
+             }
+             catch (Exception exc)
+             {
+                 MessageBox.Show(exc.Message);
+             }*/
+
+
+
+
+
+
+
+
+
+
+            /*  private void sortDesc_Click(object sender, EventArgs e)//mnu sort descending
+              {
+                  gridStudents.Sort(gridStudents.Columns[1]); ListSortDirection.Descending);
+              }
+
+              private void sortAsc_Click(object sender, EventArgs e)
+              {
+                  gridStudents.Sort(gridStudents.Columns[1]); ListSortDirection.Ascending)//mnu sort ascending
+              }*/
+
         }
-    }
-    }
 
 
-    public abstract class StudentBase
-    {
-    }
 
-    public class Student
-    {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string Address { get; set; }
-        public string Gender { get; set; }
-        public string Class { get; set; }
-        public int RollNo { get; set; }
-        public string Status { get; set; }
-        public string Phone { get; set; }
-        public string Nationality { get; set; }
-        public string MotherName { get; set; }
-        public string FatherName { get; set; }
-        public string Description { get; set; }
 
-        public Student(int id, string name, string address, string gender, string @class, int rollno,
-            string status, string phone, string nation, string mother, string father, string describe)
+
+
+        public abstract class StudentBase
         {
-            Id = id;
-            Name = name;
-            Address = address;
-            Gender = gender;
-            Class = @class;
-            RollNo = rollno;
-            Status = status;
-            Phone = phone;
-            Nationality = nation;
-            MotherName = mother;
-            FatherName = father;
-            Description = describe;
         }
 
-        public Student()
+        public class Student
         {
+            public int Id { get; set; }
+            public string Name { get; set; }
+            public string Address { get; set; }
+            public string Gender { get; set; }
+            public string Class { get; set; }
+            public int RollNo { get; set; }
+            public string Status { get; set; }
+            public string Phone { get; set; }
+            public string Nationality { get; set; }
+            public string MotherName { get; set; }
+            public string FatherName { get; set; }
+            public string Description { get; set; }
+
+            public Student(int id, string name, string address, string gender, string @class, int rollno,
+                string status, string phone, string nation, string mother, string father, string describe)
+            {
+                Id = id;
+                Name = name;
+                Address = address;
+                Gender = gender;
+                Class = @class;
+                RollNo = rollno;
+                Status = status;
+                Phone = phone;
+                Nationality = nation;
+                MotherName = mother;
+                FatherName = father;
+                Description = describe;
+            }
+
+            public Student()
+            {
+
+            }
+            public Student(string name, string address)
+            {
+                Name = name;
+                Address = address;
+
+
+
+            }
 
         }
-        
-
-        
-
+    }
     }
 
 
