@@ -20,42 +20,42 @@ namespace StudentDetails
         }
 
 
-        private async Task LoadDataAsync()
-        {
+        //private async Task LoadDataAsync()
+        //{
 
-            var dictionary = new Dictionary<int, string>();
-
-
-            try
-            {
-                using var conn = new SQLiteConnection(@"Data Source=Students.db;Version=3");
-                await conn.OpenAsync();
-
-                var cmd = new SQLiteCommand(@"SELECT * FROM Student", conn)
-                {
-                    CommandType = System.Data.CommandType.Text
-                };
-
-                var reader = await cmd.ExecuteReaderAsync();
-
-                while (await reader.ReadAsync())
-                {
-                    dictionary.Add(Convert.ToInt32(reader["Id"]), (string)reader["Name"]);
+        //    var dictionary = new Dictionary<int, string>();
 
 
-                }
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show(e.Message);
-            }
+        //    try
+        //    {
+        //        using var conn = new SQLiteConnection(@"Data Source=Students.db;Version=3");
+        //        await conn.OpenAsync();
+
+        //        var cmd = new SQLiteCommand(@"SELECT * FROM Student", conn)
+        //        {
+        //            CommandType = System.Data.CommandType.Text
+        //        };
+
+        //        var reader = await cmd.ExecuteReaderAsync();
+
+        //        while (await reader.ReadAsync())
+        //        {
+        //            dictionary.Add(Convert.ToInt32(reader["Id"]), (string)reader["Name"]);
+
+
+        //        }
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        MessageBox.Show(e.Message);
+        //    }
         
 
 
 
 
 
-        }
+        //}
 
 
         private void mnuNew_Click(object sender, EventArgs e)
@@ -67,13 +67,14 @@ namespace StudentDetails
         private async void vIEWToolStripMenuItem3_Click(object sender, EventArgs e)
         {
             gridStudents.DataSource = null;
-            var studentsList = new List<Student>();
+            var studentsList = new List<Student>();// list is initialized
 
             try
+            
             {
                 using var conn = new SQLiteConnection(@"Data Source=Students.db;Version=3");
                 await conn.OpenAsync();
-                var cmd = new SQLiteCommand("SELECT * FROM Student ", conn);
+                var cmd = new SQLiteCommand("SELECT * FROM Student", conn);
 
 
 
@@ -82,7 +83,7 @@ namespace StudentDetails
                 {
                     studentsList.Add(new Student
                     {
-                        Id = Convert.ToInt32(reader["Id"].ToString()),
+                       Id = Convert.ToInt32(reader["Id"].ToString()),
                         Name = reader["Name"].ToString(),
                         Address = reader["Address"].ToString(),
                         Gender = reader["Gender"]?.ToString() ?? "Not Defined",
@@ -123,7 +124,7 @@ namespace StudentDetails
 
         {
             gridStudents.DataSource = null;
-            var studentsList = new List<Student>();
+            var studentsList = new List<StudentInfo>();
 
             try
             {
@@ -136,7 +137,7 @@ namespace StudentDetails
                 var reader = await cmd.ExecuteReaderAsync();
                 while (await reader.ReadAsync())
                 {
-                    studentsList.Add(new Student
+                    studentsList.Add(new StudentInfo
                     {
                         Id = Convert.ToInt32(reader["Id"].ToString()),
                         Name = reader["Name"].ToString(),
@@ -153,9 +154,10 @@ namespace StudentDetails
                     });
 
                     gridStudents.DataSource = studentsList;
-
+                   
                 }
 
+               
             }
 
 
@@ -170,10 +172,8 @@ namespace StudentDetails
             }
         }
 
-        private void txtboxSearch_Click(object sender, EventArgs e)
-        {
+       
         
-        }
     }
 
 
@@ -247,6 +247,7 @@ namespace StudentDetails
 
 
             }
+       
 
         }
 

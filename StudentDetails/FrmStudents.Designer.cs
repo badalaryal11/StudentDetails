@@ -30,17 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.gridStudents = new System.Windows.Forms.DataGridView();
-            this.NAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ADDRESS = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GENDER = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CLASS = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ROLLNO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.STATUS = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PHONE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NATIONALITY = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FATHERNAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MOTHERNAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DESCRIPTION = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mnuRegister = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.vIEWToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -62,6 +51,17 @@
             this.sortAsc = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.contextMenuStrip3 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.NAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ADDRESS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GENDER = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CLASS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ROLLNO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.STATUS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PHONE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NATIONALITY = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FATHERNAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MOTHERNAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DESCRIPTION = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gridStudents)).BeginInit();
             this.mnuRegister.SuspendLayout();
             this.contextMenuStrip2.SuspendLayout();
@@ -95,96 +95,6 @@
             this.gridStudents.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridStudents.Size = new System.Drawing.Size(1029, 448);
             this.gridStudents.TabIndex = 0;
-            // 
-            // NAME
-            // 
-            this.NAME.DataPropertyName = "Name";
-            this.NAME.Frozen = true;
-            this.NAME.HeaderText = "NAME";
-            this.NAME.MinimumWidth = 150;
-            this.NAME.Name = "NAME";
-            this.NAME.ReadOnly = true;
-            this.NAME.Width = 150;
-            // 
-            // ADDRESS
-            // 
-            this.ADDRESS.DataPropertyName = "Address";
-            this.ADDRESS.Frozen = true;
-            this.ADDRESS.HeaderText = "ADDRESS";
-            this.ADDRESS.Name = "ADDRESS";
-            this.ADDRESS.ReadOnly = true;
-            // 
-            // GENDER
-            // 
-            this.GENDER.DataPropertyName = "Gender";
-            this.GENDER.Frozen = true;
-            this.GENDER.HeaderText = "GENDER";
-            this.GENDER.Name = "GENDER";
-            this.GENDER.ReadOnly = true;
-            // 
-            // CLASS
-            // 
-            this.CLASS.DataPropertyName = "Class";
-            this.CLASS.Frozen = true;
-            this.CLASS.HeaderText = "CLASS";
-            this.CLASS.Name = "CLASS";
-            this.CLASS.ReadOnly = true;
-            // 
-            // ROLLNO
-            // 
-            this.ROLLNO.DataPropertyName = "RollNo";
-            this.ROLLNO.Frozen = true;
-            this.ROLLNO.HeaderText = "ROLLNO.";
-            this.ROLLNO.Name = "ROLLNO";
-            this.ROLLNO.ReadOnly = true;
-            // 
-            // STATUS
-            // 
-            this.STATUS.DataPropertyName = "Status";
-            this.STATUS.Frozen = true;
-            this.STATUS.HeaderText = "STATUS";
-            this.STATUS.Name = "STATUS";
-            this.STATUS.ReadOnly = true;
-            // 
-            // PHONE
-            // 
-            this.PHONE.DataPropertyName = "Phone";
-            this.PHONE.Frozen = true;
-            this.PHONE.HeaderText = "PHONE";
-            this.PHONE.Name = "PHONE";
-            this.PHONE.ReadOnly = true;
-            // 
-            // NATIONALITY
-            // 
-            this.NATIONALITY.DataPropertyName = "Nationality";
-            this.NATIONALITY.Frozen = true;
-            this.NATIONALITY.HeaderText = "NATIONALITY";
-            this.NATIONALITY.Name = "NATIONALITY";
-            this.NATIONALITY.ReadOnly = true;
-            // 
-            // FATHERNAME
-            // 
-            this.FATHERNAME.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.FATHERNAME.DataPropertyName = "FatherName";
-            this.FATHERNAME.HeaderText = "FATHER NAME";
-            this.FATHERNAME.Name = "FATHERNAME";
-            this.FATHERNAME.ReadOnly = true;
-            // 
-            // MOTHERNAME
-            // 
-            this.MOTHERNAME.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.MOTHERNAME.DataPropertyName = "MotherName";
-            this.MOTHERNAME.HeaderText = "MOTHER NAME";
-            this.MOTHERNAME.Name = "MOTHERNAME";
-            this.MOTHERNAME.ReadOnly = true;
-            // 
-            // DESCRIPTION
-            // 
-            this.DESCRIPTION.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.DESCRIPTION.DataPropertyName = "Description";
-            this.DESCRIPTION.HeaderText = "DESCRIPTION";
-            this.DESCRIPTION.Name = "DESCRIPTION";
-            this.DESCRIPTION.ReadOnly = true;
             // 
             // mnuRegister
             // 
@@ -297,7 +207,7 @@
             this.txtboxSearch.Name = "txtboxSearch";
             this.txtboxSearch.ReadOnly = true;
             this.txtboxSearch.Size = new System.Drawing.Size(100, 23);
-            this.txtboxSearch.Click += new System.EventHandler(this.txtboxSearch_Click);
+            
             // 
             // mnuSearch
             // 
@@ -318,12 +228,12 @@
             // sortDesc
             // 
             this.sortDesc.Name = "sortDesc";
-            this.sortDesc.Size = new System.Drawing.Size(180, 22);
+            this.sortDesc.Size = new System.Drawing.Size(67, 22);
             // 
             // sortAsc
             // 
             this.sortAsc.Name = "sortAsc";
-            this.sortAsc.Size = new System.Drawing.Size(180, 22);
+            this.sortAsc.Size = new System.Drawing.Size(67, 22);
             // 
             // contextMenuStrip1
             // 
@@ -334,6 +244,97 @@
             // 
             this.contextMenuStrip3.Name = "contextMenuStrip3";
             this.contextMenuStrip3.Size = new System.Drawing.Size(61, 4);
+            // 
+            // NAME
+            // 
+            this.NAME.DataPropertyName = "Name";
+            this.NAME.Frozen = true;
+            this.NAME.HeaderText = "NAME";
+            this.NAME.MinimumWidth = 150;
+            this.NAME.Name = "NAME";
+            this.NAME.ReadOnly = true;
+            this.NAME.Width = 150;
+            // 
+            // ADDRESS
+            // 
+            this.ADDRESS.DataPropertyName = "Address";
+            this.ADDRESS.Frozen = true;
+            this.ADDRESS.HeaderText = "ADDRESS";
+            this.ADDRESS.Name = "ADDRESS";
+            this.ADDRESS.ReadOnly = true;
+            // 
+            // GENDER
+            // 
+            this.GENDER.ContextMenuStrip = this.mnuRegister;
+            this.GENDER.DataPropertyName = "Gender";
+            this.GENDER.Frozen = true;
+            this.GENDER.HeaderText = "GENDER";
+            this.GENDER.Name = "GENDER";
+            this.GENDER.ReadOnly = true;
+            // 
+            // CLASS
+            // 
+            this.CLASS.ContextMenuStrip = this.mnuRegister;
+            this.CLASS.DataPropertyName = "Class";
+            this.CLASS.Frozen = true;
+            this.CLASS.HeaderText = "CLASS";
+            this.CLASS.Name = "CLASS";
+            this.CLASS.ReadOnly = true;
+            // 
+            // ROLLNO
+            // 
+            this.ROLLNO.DataPropertyName = "RollNo";
+            this.ROLLNO.Frozen = true;
+            this.ROLLNO.HeaderText = "ROLLNO.";
+            this.ROLLNO.Name = "ROLLNO";
+            this.ROLLNO.ReadOnly = true;
+            // 
+            // STATUS
+            // 
+            this.STATUS.DataPropertyName = "Status";
+            this.STATUS.Frozen = true;
+            this.STATUS.HeaderText = "STATUS";
+            this.STATUS.Name = "STATUS";
+            this.STATUS.ReadOnly = true;
+            // 
+            // PHONE
+            // 
+            this.PHONE.DataPropertyName = "Phone";
+            this.PHONE.Frozen = true;
+            this.PHONE.HeaderText = "PHONE";
+            this.PHONE.Name = "PHONE";
+            this.PHONE.ReadOnly = true;
+            // 
+            // NATIONALITY
+            // 
+            this.NATIONALITY.DataPropertyName = "Nationality";
+            this.NATIONALITY.HeaderText = "NATIONALITY";
+            this.NATIONALITY.Name = "NATIONALITY";
+            this.NATIONALITY.ReadOnly = true;
+            // 
+            // FATHERNAME
+            // 
+            this.FATHERNAME.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.FATHERNAME.DataPropertyName = "FatherName";
+            this.FATHERNAME.HeaderText = "FATHER NAME";
+            this.FATHERNAME.Name = "FATHERNAME";
+            this.FATHERNAME.ReadOnly = true;
+            // 
+            // MOTHERNAME
+            // 
+            this.MOTHERNAME.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.MOTHERNAME.DataPropertyName = "MotherName";
+            this.MOTHERNAME.HeaderText = "MOTHER NAME";
+            this.MOTHERNAME.Name = "MOTHERNAME";
+            this.MOTHERNAME.ReadOnly = true;
+            // 
+            // DESCRIPTION
+            // 
+            this.DESCRIPTION.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.DESCRIPTION.DataPropertyName = "Description";
+            this.DESCRIPTION.HeaderText = "DESCRIPTION";
+            this.DESCRIPTION.Name = "DESCRIPTION";
+            this.DESCRIPTION.ReadOnly = true;
             // 
             // FrmStudents
             // 
@@ -373,6 +374,15 @@
         private ToolStripMenuItem sAVEToolStripMenuItem;
         private ToolStripMenuItem sAVEASToolStripMenuItem;
         private ToolStripMenuItem mnuUpdate;
+       
+        private ContextMenuStrip contextMenuStrip1;
+        private ContextMenuStrip contextMenuStrip3;
+        private ToolStripTextBox txtboxSearch;
+        private ToolStripMenuItem mnuSearch;
+        private ToolStripMenuItem toolStripMenuItem1;
+        private ToolStripMenuItem sortToolStripMenuItem;
+        private ToolStripMenuItem sortDesc;
+        private ToolStripMenuItem sortAsc;
         private DataGridViewTextBoxColumn NAME;
         private DataGridViewTextBoxColumn ADDRESS;
         private DataGridViewTextBoxColumn GENDER;
@@ -384,14 +394,5 @@
         private DataGridViewTextBoxColumn FATHERNAME;
         private DataGridViewTextBoxColumn MOTHERNAME;
         private DataGridViewTextBoxColumn DESCRIPTION;
-       
-        private ContextMenuStrip contextMenuStrip1;
-        private ContextMenuStrip contextMenuStrip3;
-        private ToolStripTextBox txtboxSearch;
-        private ToolStripMenuItem mnuSearch;
-        private ToolStripMenuItem toolStripMenuItem1;
-        private ToolStripMenuItem sortToolStripMenuItem;
-        private ToolStripMenuItem sortDesc;
-        private ToolStripMenuItem sortAsc;
     }
 }
