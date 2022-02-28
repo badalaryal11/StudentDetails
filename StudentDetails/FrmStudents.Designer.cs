@@ -214,7 +214,7 @@
             this.mnuSearch.Name = "mnuSearch";
             this.mnuSearch.Size = new System.Drawing.Size(54, 23);
             this.mnuSearch.Text = "Search";
-            this.mnuSearch.Click += new System.EventHandler(this.mnuSearch_Click);
+            //this.mnuSearch.Click += new System.EventHandler(this.mnuSearch_Click);
             // 
             // sortToolStripMenuItem
             // 

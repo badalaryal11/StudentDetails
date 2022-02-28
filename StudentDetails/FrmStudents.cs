@@ -123,56 +123,56 @@ namespace StudentDetails
 
 
 
-        private async void mnuSearch_Click(object sender, EventArgs e) // MENU TO SEARCH
+        //private async void mnuSearch_Click(object sender, EventArgs e) // MENU TO SEARCH
 
-        {
-            gridStudents.DataSource = null;
-            var studentsList = new List<StudentInfo>();
+        //{
+        //    gridStudents.DataSource = null;
+        //    var studentsList = new List<Student>();
 
-            try
-            {
-                using var conn = new SQLiteConnection(@"Data Source=Students.db;Version=3");
-                await conn.OpenAsync();
-                var cmd = new SQLiteCommand("SELECT * FROM Student WHERE Name LIKE '%txtboxSearch.Text%' ", conn);
+        //    try
+        //    {
+        //        using var conn = new SQLiteConnection(@"Data Source=Students.db;Version=3");
+        //        await conn.OpenAsync();
+        //        var cmd = new SQLiteCommand("SELECT * FROM Student WHERE Name LIKE '%txtboxSearch.Text%' ", conn);
 
 
 
-                var reader = await cmd.ExecuteReaderAsync();
-                while (await reader.ReadAsync())
-                {
-                    studentsList.Add(new StudentInfo
-                    {
-                        Id = Convert.ToInt32(reader["Id"]),
-                        Name = reader["Name"].ToString(),
-                        Address = reader["Address"].ToString(),
-                        Gender = reader["Gender"]?.ToString() ?? "Not Defined",
-                        Class = reader["Class"].ToString(),
-                        RollNo = Convert.ToInt32(reader["RollNo"]),
-                        Status = reader["Status"].ToString(),
-                        Phone = reader["Phone"].ToString(),
-                        Nationality = reader["Nationality"].ToString(),
-                        MotherName = reader["MotherName"].ToString(),
-                        FatherName = reader["FatherName"].ToString(),
-                        Description = reader["Description"].ToString()
-                    });
+        //        var reader = await cmd.ExecuteReaderAsync();
+        //        while (await reader.ReadAsync())
+        //        {
+        //            studentsList.Add(new Student
+        //            {
+        //                Id = Convert.ToInt32(reader["Id"]),
+        //                Name = reader["Name"].ToString(),
+        //                Address = reader["Address"].ToString(),
+        //                Gender = reader["Gender"]?.ToString() ?? "Not Defined",
+        //                Class = reader["Class"].ToString(),
+        //                RollNo = Convert.ToInt32(reader["RollNo"]),
+        //                Status = reader["Status"].ToString(),
+        //                Phone = reader["Phone"].ToString(),
+        //                Nationality = reader["Nationality"].ToString(),
+        //                MotherName = reader["MotherName"].ToString(),
+        //                FatherName = reader["FatherName"].ToString(),
+        //                Description = reader["Description"].ToString()
+        //            });
 
-                    gridStudents.DataSource = studentsList;
+        //            gridStudents.DataSource = studentsList;
                    
-                }
+        //        }
 
                
-            }
+        //    }
 
 
 
 
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show(ex.Message);
 
 
 
-            }
+        //   }
 
         }
 
@@ -256,7 +256,8 @@ namespace StudentDetails
         }
 
        
-    }
+    
+
 
 
     
