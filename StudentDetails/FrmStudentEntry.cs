@@ -94,7 +94,7 @@ namespace StudentDetails
             }
 
 
-            var student = new Student
+            var student = new StudentInfo
 
             {
                 Id = intValue,

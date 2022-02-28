@@ -52,6 +52,7 @@
             this.sAVEASToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.vIEWToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuNew = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuUpdate = new System.Windows.Forms.ToolStripMenuItem();
             this.vIEWToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.txtboxSearch = new System.Windows.Forms.ToolStripTextBox();
@@ -61,7 +62,6 @@
             this.sortAsc = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.contextMenuStrip3 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.mnuUpdate = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.gridStudents)).BeginInit();
             this.mnuRegister.SuspendLayout();
             this.contextMenuStrip2.SuspendLayout();
@@ -242,19 +242,19 @@
             // oPENToolStripMenuItem
             // 
             this.oPENToolStripMenuItem.Name = "oPENToolStripMenuItem";
-            this.oPENToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.oPENToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
             this.oPENToolStripMenuItem.Text = "OPEN";
             // 
             // sAVEToolStripMenuItem
             // 
             this.sAVEToolStripMenuItem.Name = "sAVEToolStripMenuItem";
-            this.sAVEToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sAVEToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
             this.sAVEToolStripMenuItem.Text = "SAVE";
             // 
             // sAVEASToolStripMenuItem
             // 
             this.sAVEASToolStripMenuItem.Name = "sAVEASToolStripMenuItem";
-            this.sAVEASToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sAVEASToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
             this.sAVEASToolStripMenuItem.Text = "SAVE AS";
             // 
             // vIEWToolStripMenuItem2
@@ -269,9 +269,16 @@
             // mnuNew
             // 
             this.mnuNew.Name = "mnuNew";
-            this.mnuNew.Size = new System.Drawing.Size(180, 22);
+            this.mnuNew.Size = new System.Drawing.Size(116, 22);
             this.mnuNew.Text = "NEW";
             this.mnuNew.Click += new System.EventHandler(this.mnuNew_Click);
+            // 
+            // mnuUpdate
+            // 
+            this.mnuUpdate.Name = "mnuUpdate";
+            this.mnuUpdate.Size = new System.Drawing.Size(116, 22);
+            this.mnuUpdate.Text = "UPDATE";
+            this.mnuUpdate.Click += new System.EventHandler(this.mnuNew_Click);
             // 
             // vIEWToolStripMenuItem3
             // 
@@ -287,7 +294,7 @@
             // 
             // txtboxSearch
             // 
-            this.txtboxSearch.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.txtboxSearch.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.txtboxSearch.Name = "txtboxSearch";
             this.txtboxSearch.ReadOnly = true;
             this.txtboxSearch.Size = new System.Drawing.Size(100, 23);
@@ -326,13 +333,6 @@
             // 
             this.contextMenuStrip3.Name = "contextMenuStrip3";
             this.contextMenuStrip3.Size = new System.Drawing.Size(61, 4);
-            // 
-            // mnuUpdate
-            // 
-            this.mnuUpdate.Name = "mnuUpdate";
-            this.mnuUpdate.Size = new System.Drawing.Size(180, 22);
-            this.mnuUpdate.Text = "UPDATE";
-            this.mnuUpdate.Click += new System.EventHandler(this.mnuNew_Click);
             // 
             // FrmStudents
             // 
