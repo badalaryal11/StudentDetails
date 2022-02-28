@@ -78,10 +78,8 @@ namespace StudentDetails
                 using var conn = new SQLiteConnection(@"Data Source=Students.db;Version=3");
                 await conn.OpenAsync();
                 var cmd = new SQLiteCommand("SELECT * FROM Student", conn);
-
-
-
                 var reader = await cmd.ExecuteReaderAsync();
+
                 while (await reader.ReadAsync())
                 {
                     studentsList.Add(new StudentInfo
@@ -137,7 +135,7 @@ namespace StudentDetails
                 {
                     using var conn = new SQLiteConnection(@"Data Source=Students.db;Version=3");
                     await conn.OpenAsync();
-                    var cmd = new SQLiteCommand("SELECT * FROM Student WHERE Name LIKE '%txtboxSearch.Text%' ", conn);
+                    var cmd = new SQLiteCommand("SELECT * FROM Student WHERE Name LIKE '+txtboxSearch.Text+' ", conn);
 
 
 
