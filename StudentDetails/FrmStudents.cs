@@ -71,7 +71,7 @@ namespace StudentDetails
 
             try
             
-            da{
+            {
                 using var conn = new SQLiteConnection(@"Data Source=Students.db;Version=3");
                 await conn.OpenAsync();
                 var cmd = new SQLiteCommand("SELECT * FROM Student", conn);
