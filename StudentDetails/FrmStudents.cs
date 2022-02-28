@@ -67,11 +67,11 @@ namespace StudentDetails
         private async void vIEWToolStripMenuItem3_Click(object sender, EventArgs e)
         {
             gridStudents.DataSource = null;
-            var studentsList = new List<Student>();// list is initialized
+            var studentsList = new List<StudentInfo>();// list is initialized
 
             try
             
-            {
+            da{
                 using var conn = new SQLiteConnection(@"Data Source=Students.db;Version=3");
                 await conn.OpenAsync();
                 var cmd = new SQLiteCommand("SELECT * FROM Student", conn);
@@ -81,8 +81,9 @@ namespace StudentDetails
                 var reader = await cmd.ExecuteReaderAsync();
                 while (await reader.ReadAsync())
                 {
-                    studentsList.Add(new Student
+                    studentsList.Add(new StudentInfo
                     {
+                        
                        Id = Convert.ToInt32(reader["Id"].ToString()),
                         Name = reader["Name"].ToString(),
                         Address = reader["Address"].ToString(),
@@ -95,7 +96,7 @@ namespace StudentDetails
                         MotherName = reader["MotherName"].ToString(),
                         FatherName = reader["FatherName"].ToString(),
                         Description = reader["Description"].ToString()
-                    });
+                    }) ;
 
                     gridStudents.DataSource = studentsList;
 
@@ -139,7 +140,7 @@ namespace StudentDetails
                 {
                     studentsList.Add(new StudentInfo
                     {
-                        Id = Convert.ToInt32(reader["Id"].ToString()),
+                        Id = Convert.ToInt32(reader["Id"]),
                         Name = reader["Name"].ToString(),
                         Address = reader["Address"].ToString(),
                         Gender = reader["Gender"]?.ToString() ?? "Not Defined",
