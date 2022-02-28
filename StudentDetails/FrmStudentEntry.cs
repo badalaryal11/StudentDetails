@@ -28,27 +28,27 @@ namespace StudentDetails
                 MessageBox.Show("Enter student Address");
                 return;
             }
-             if (string.IsNullOrWhiteSpace(txtGender.Text))
+            if (string.IsNullOrWhiteSpace(txtGender.Text))
             {
                 MessageBox.Show("Enter student Gender");
                 return;
             }
-             if (string.IsNullOrWhiteSpace(txtclass.Text))
+            if (string.IsNullOrWhiteSpace(txtclass.Text))
             {
                 MessageBox.Show("Enter student class");
                 return;
             }
-             if (string.IsNullOrWhiteSpace(txtRollNo.Text))
+            if (string.IsNullOrWhiteSpace(txtRollNo.Text))
             {
                 MessageBox.Show("Enter student Roll no.");
                 return;
             }
-             if (string.IsNullOrWhiteSpace(txtStatus.Text))
+            if (string.IsNullOrWhiteSpace(txtStatus.Text))
             {
                 MessageBox.Show("Enter student Status");
                 return;
             }
-             if (string.IsNullOrWhiteSpace(txtPhone.Text))
+            if (string.IsNullOrWhiteSpace(txtPhone.Text))
             {
                 MessageBox.Show("Enter student phone");
                 return;
@@ -59,12 +59,12 @@ namespace StudentDetails
                 MessageBox.Show("Enter student Nationality");
                 return;
             }
-             if (string.IsNullOrWhiteSpace(txtMother.Text))
+            if (string.IsNullOrWhiteSpace(txtMother.Text))
             {
                 MessageBox.Show("Enter student Mother's name");
                 return;
             }
-             if (string.IsNullOrWhiteSpace(txtFather.Text))
+            if (string.IsNullOrWhiteSpace(txtFather.Text))
             {
                 MessageBox.Show("Enter student Father's Name");
                 return;
@@ -73,6 +73,10 @@ namespace StudentDetails
             {
                 MessageBox.Show("Enter student Description");
                 return;
+            }
+            else
+            {
+                MessageBox.Show("You have sucessfully entered the information of student");
             }
 
 
@@ -88,7 +92,7 @@ namespace StudentDetails
                 // true
                 var rollNo = intValue;
             }
-            
+
 
             var student = new Student
 
@@ -123,7 +127,7 @@ namespace StudentDetails
                     CommandType = System.Data.CommandType.Text
                 };
 
-               
+
                 cmd.Parameters.Add(new SQLiteParameter("@prName", student.Name));
                 cmd.Parameters.Add(new SQLiteParameter("@prAddress", student.Address));
                 cmd.Parameters.Add(new SQLiteParameter("@prGender", student.Gender));
@@ -139,35 +143,37 @@ namespace StudentDetails
                 var rowsCount = cmd.ExecuteNonQuery();
                 conn.Close();
             }
-            //catch (SQLiteException exec)
-            //{
-            //    MessageBox.Show(exec.Message);
-            //}
+            catch (SQLiteException exec)
+            {
+                MessageBox.Show(exec.Message);
+            }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
 
         }
+
+
     }
-}
 
 
-public class StudentInfo
-{
-    public int Id { get; set; }
-    public string Name { get; set; }
-    public string Address { get; set; }
+    public class StudentInfo
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Address { get; set; }
 
-    public string Gender { get; set; }
-    public string Class { get; set; }
-    public int RollNo { get; set; }
-    public string Status { get; set; }
+        public string Gender { get; set; }
+        public string Class { get; set; }
+        public int RollNo { get; set; }
+        public string Status { get; set; }
 
-    public string Phone { get; set; }
-    public string Nationality { get; set; }
-    public string MotherName { get; set; }
-    public string FatherName { get; set; }
-    public string Description { get; set; }
+        public string Phone { get; set; }
+        public string Nationality { get; set; }
+        public string MotherName { get; set; }
+        public string FatherName { get; set; }
+        public string Description { get; set; }
 
+    }
 }
