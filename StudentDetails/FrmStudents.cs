@@ -71,6 +71,7 @@ namespace StudentDetails
 
             try
             
+            
             {
                 using var conn = new SQLiteConnection(@"Data Source=Students.db;Version=3");
                 await conn.OpenAsync();
@@ -99,6 +100,7 @@ namespace StudentDetails
                     }) ;
 
                     gridStudents.DataSource = studentsList;
+
 
                 }
 
@@ -171,6 +173,7 @@ namespace StudentDetails
 
 
             }
+
         }
 
        
