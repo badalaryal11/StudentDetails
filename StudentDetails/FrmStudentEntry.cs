@@ -139,10 +139,10 @@ namespace StudentDetails
                 var rowsCount = cmd.ExecuteNonQuery();
                 conn.Close();
             }
-            catch (SQLiteException exec)
-            {
-                MessageBox.Show(exec.Message);
-            }
+            //catch (SQLiteException exec)
+            //{
+            //    MessageBox.Show(exec.Message);
+            //}
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
