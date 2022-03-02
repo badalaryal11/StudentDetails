@@ -74,12 +74,6 @@ namespace StudentDetails
                 MessageBox.Show("Enter student Description");
                 return;
             }
-            else
-            {
-                MessageBox.Show("You have sucessfully entered the information of student");
-            }
-
-
 
             var isInteger = int.TryParse(txtRollNo.Text.Trim(), out var intValue);
             if (isInteger == false)
@@ -87,14 +81,22 @@ namespace StudentDetails
                 MessageBox.Show("Invalid roll number");
                 return;
             }
-            else
+            else 
             {
                 // true
                 var rollNo = intValue;
             }
 
+            
+           
+            MessageBox.Show("You have sucessfully entered the information of student");
+           
 
-            var student = new StudentInfo
+
+
+
+
+            var student = new StudentInfo// passing values to the object
 
             {
                 

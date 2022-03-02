@@ -98,10 +98,12 @@ namespace StudentDetails
                         FatherName = reader["FatherName"].ToString(),
                         Description = reader["Description"].ToString()
                         
+                        
                     });
-
-                    gridStudents.DataSource = studentsList;
-
+                    
+                        gridStudents.DataSource = studentsList;
+                    
+                 
 
                 }
 
