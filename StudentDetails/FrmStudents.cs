@@ -20,42 +20,42 @@ namespace StudentDetails
         }
 
 
-        //private async Task LoadDataAsync()
-        //{
+        private async Task LoadDataAsync()
+        {
 
-        //    var dictionary = new Dictionary<int, string>();
-
-
-        //    try
-        //    {
-        //        using var conn = new SQLiteConnection(@"Data Source=Students.db;Version=3");
-        //        await conn.OpenAsync();
-
-        //        var cmd = new SQLiteCommand(@"SELECT * FROM Student", conn)
-        //        {
-        //            CommandType = System.Data.CommandType.Text
-        //        };
-
-        //        var reader = await cmd.ExecuteReaderAsync();
-
-        //        while (await reader.ReadAsync())
-        //        {
-        //            dictionary.Add(Convert.ToInt32(reader["Id"]), (string)reader["Name"]);
+            var dictionary = new Dictionary<int, string>();
 
 
-        //        }
-        //    }
-        //    catch (Exception e)
-        //    {
-        //        MessageBox.Show(e.Message);
-        //    }
+            try
+            {
+                using var conn = new SQLiteConnection(@"Data Source=Students.db;Version=3");
+                await conn.OpenAsync();
+
+                var cmd = new SQLiteCommand(@"SELECT * FROM Student", conn)
+                {
+                    CommandType = System.Data.CommandType.Text
+                };
+
+                var reader = await cmd.ExecuteReaderAsync();
+
+                while (await reader.ReadAsync())
+                {
+                    dictionary.Add(Convert.ToInt32(reader["Id"]), (string)reader["Name"]);
 
 
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
 
 
 
 
-        //}
+
+
+        }
 
 
         private void mnuNew_Click(object sender, EventArgs e)
@@ -85,7 +85,7 @@ namespace StudentDetails
                     studentsList.Add(new StudentInfo
                     {
 
-                        //Id = Convert.ToInt32(reader["Id"].ToString()),
+                        Id = Convert.ToInt32(reader["Id"].ToString()),
                         Name = reader["Name"].ToString(),
                         Address = reader["Address"].ToString(),
                         Gender = reader["Gender"]?.ToString() ?? "Not Defined",
@@ -97,7 +97,7 @@ namespace StudentDetails
                         MotherName = reader["MotherName"].ToString(),
                         FatherName = reader["FatherName"].ToString(),
                         Description = reader["Description"].ToString()
-                        // gridStudents.DataSource = studentsList;
+                        
                     });
 
                     gridStudents.DataSource = studentsList;
@@ -136,7 +136,7 @@ namespace StudentDetails
                 {
                     using var conn = new SQLiteConnection(@"Data Source=Students.db;Version=3");
                     await conn.OpenAsync();
-                    var cmd = new SQLiteCommand("SELECT * FROM Student WHERE Name LIKE '+txtboxSearch.Text+' ", conn);
+                    var cmd = new SQLiteCommand("SELECT * FROM Student WHERE Name LIKE '%txtboxSearch.Text%' ", conn);
 
 
 
@@ -145,7 +145,7 @@ namespace StudentDetails
                     {
                         studentsList.Add(new Student
                         {
-                            //Id = Convert.ToInt32(reader["Id"]),
+                            Id = Convert.ToInt32(reader["Id"]),
                             Name = reader["Name"].ToString(),
                             Address = reader["Address"].ToString(),
                             Gender = reader["Gender"]?.ToString() ?? "Not Defined",
@@ -229,7 +229,7 @@ namespace StudentDetails
             public string FatherName { get; set; }
             public string Description { get; set; }
 
-            public Student(int id, string name, string address, string gender, string @class, int rollno,
+            public Student(int id, string name, string address, string gender, string @class, int rollno,// intializing an object
                 string status, string phone, string nation, string mother, string father, string describe)
             {
                 Id = id;
