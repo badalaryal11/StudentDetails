@@ -85,7 +85,7 @@ namespace StudentDetails
                     studentsList.Add(new StudentInfo
                     {
 
-                        Id = Convert.ToInt32(reader["Id"].ToString()),
+                        //Id = Convert.ToInt32(reader["Id"].ToString()),
                         Name = reader["Name"].ToString(),
                         Address = reader["Address"].ToString(),
                         Gender = reader["Gender"]?.ToString() ?? "Not Defined",
@@ -97,6 +97,7 @@ namespace StudentDetails
                         MotherName = reader["MotherName"].ToString(),
                         FatherName = reader["FatherName"].ToString(),
                         Description = reader["Description"].ToString()
+                        // gridStudents.DataSource = studentsList;
                     });
 
                     gridStudents.DataSource = studentsList;
@@ -144,7 +145,7 @@ namespace StudentDetails
                     {
                         studentsList.Add(new Student
                         {
-                            Id = Convert.ToInt32(reader["Id"]),
+                            //Id = Convert.ToInt32(reader["Id"]),
                             Name = reader["Name"].ToString(),
                             Address = reader["Address"].ToString(),
                             Gender = reader["Gender"]?.ToString() ?? "Not Defined",
@@ -158,7 +159,10 @@ namespace StudentDetails
                             Description = reader["Description"].ToString()
                         });
 
-                        gridStudents.DataSource = studentsList;
+                        //gridStudents.DataSource = studentsList;
+                        //var outputParam = dataAccCom.GetParameterValue(IDbCmd, "op_Id");
+                        //if (!(outputParam is DBNull))
+                        //    DataTO.Id = Convert.ToInt64(outputParam);
 
                     }
 

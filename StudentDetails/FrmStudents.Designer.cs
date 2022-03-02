@@ -57,9 +57,6 @@
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.txtboxSearch = new System.Windows.Forms.ToolStripTextBox();
             this.mnuSearch = new System.Windows.Forms.ToolStripMenuItem();
-            this.sortToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sortDesc = new System.Windows.Forms.ToolStripMenuItem();
-            this.sortAsc = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.contextMenuStrip3 = new System.Windows.Forms.ContextMenuStrip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.gridStudents)).BeginInit();
@@ -214,8 +211,7 @@
             this.vIEWToolStripMenuItem3,
             this.toolStripMenuItem1,
             this.txtboxSearch,
-            this.mnuSearch,
-            this.sortToolStripMenuItem});
+            this.mnuSearch});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1029, 27);
@@ -235,19 +231,19 @@
             // oPENToolStripMenuItem
             // 
             this.oPENToolStripMenuItem.Name = "oPENToolStripMenuItem";
-            this.oPENToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
+            this.oPENToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.oPENToolStripMenuItem.Text = "OPEN";
             // 
             // sAVEToolStripMenuItem
             // 
             this.sAVEToolStripMenuItem.Name = "sAVEToolStripMenuItem";
-            this.sAVEToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
+            this.sAVEToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.sAVEToolStripMenuItem.Text = "SAVE";
             // 
             // sAVEASToolStripMenuItem
             // 
             this.sAVEASToolStripMenuItem.Name = "sAVEASToolStripMenuItem";
-            this.sAVEASToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
+            this.sAVEASToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.sAVEASToolStripMenuItem.Text = "SAVE AS";
             // 
             // vIEWToolStripMenuItem2
@@ -297,25 +293,6 @@
             this.mnuSearch.Name = "mnuSearch";
             this.mnuSearch.Size = new System.Drawing.Size(54, 23);
             this.mnuSearch.Text = "Search";
-            // 
-            // sortToolStripMenuItem
-            // 
-            this.sortToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.sortDesc,
-            this.sortAsc});
-            this.sortToolStripMenuItem.Name = "sortToolStripMenuItem";
-            this.sortToolStripMenuItem.Size = new System.Drawing.Size(40, 23);
-            this.sortToolStripMenuItem.Text = "Sort";
-            // 
-            // sortDesc
-            // 
-            this.sortDesc.Name = "sortDesc";
-            this.sortDesc.Size = new System.Drawing.Size(67, 22);
-            // 
-            // sortAsc
-            // 
-            this.sortAsc.Name = "sortAsc";
-            this.sortAsc.Size = new System.Drawing.Size(67, 22);
             // 
             // contextMenuStrip1
             // 
@@ -370,9 +347,6 @@
         private ToolStripTextBox txtboxSearch;
         private ToolStripMenuItem mnuSearch;
         private ToolStripMenuItem toolStripMenuItem1;
-        private ToolStripMenuItem sortToolStripMenuItem;
-        private ToolStripMenuItem sortDesc;
-        private ToolStripMenuItem sortAsc;
         private ToolStripMenuItem mnuUpdate;
         private DataGridViewTextBoxColumn NAME;
         private DataGridViewTextBoxColumn ADDRESS;
