@@ -88,10 +88,12 @@
             this.gridStudents.MultiSelect = false;
             this.gridStudents.Name = "gridStudents";
             this.gridStudents.ReadOnly = true;
+            this.gridStudents.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.gridStudents.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.gridStudents.RowTemplate.Height = 25;
             this.gridStudents.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridStudents.Size = new System.Drawing.Size(1029, 448);
-            this.gridStudents.TabIndex = 0;
+            this.gridStudents.TabIndex = 1;
             // 
             // NAME
             // 
@@ -231,19 +233,19 @@
             // oPENToolStripMenuItem
             // 
             this.oPENToolStripMenuItem.Name = "oPENToolStripMenuItem";
-            this.oPENToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.oPENToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
             this.oPENToolStripMenuItem.Text = "OPEN";
             // 
             // sAVEToolStripMenuItem
             // 
             this.sAVEToolStripMenuItem.Name = "sAVEToolStripMenuItem";
-            this.sAVEToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sAVEToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
             this.sAVEToolStripMenuItem.Text = "SAVE";
             // 
             // sAVEASToolStripMenuItem
             // 
             this.sAVEASToolStripMenuItem.Name = "sAVEASToolStripMenuItem";
-            this.sAVEASToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sAVEASToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
             this.sAVEASToolStripMenuItem.Text = "SAVE AS";
             // 
             // vIEWToolStripMenuItem2

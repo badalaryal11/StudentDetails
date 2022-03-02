@@ -97,7 +97,7 @@ namespace StudentDetails
             var student = new StudentInfo
 
             {
-               // Id = intValue,
+                Id = intValue,
                 Name = txtName.Text.Trim(),
                 Address = txtAddress.Text.Trim(),
                 Gender = txtGender.Text.Trim(),
@@ -112,7 +112,7 @@ namespace StudentDetails
             };
 
 
-
+            
             try
             {
                 using var conn = new SQLiteConnection(@"Data Source=Students.db;Version=3");
@@ -160,7 +160,7 @@ namespace StudentDetails
 
     public class StudentInfo
     {
-       // public string Id { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; }
         public string Address { get; set; }
 
