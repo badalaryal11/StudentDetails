@@ -97,7 +97,7 @@ namespace StudentDetails
             var student = new StudentInfo
 
             {
-                Id = intValue,
+                
                 Name = txtName.Text.Trim(),
                 Address = txtAddress.Text.Trim(),
                 Gender = txtGender.Text.Trim(),
@@ -160,7 +160,7 @@ namespace StudentDetails
 
     public class StudentInfo
     {
-        public int Id { get; set; }
+        public Int32 Id { get; set; }
         public string Name { get; set; }
         public string Address { get; set; }
 

@@ -85,7 +85,7 @@ namespace StudentDetails
                     studentsList.Add(new StudentInfo
                     {
 
-                       Id = Convert.ToInt32(reader["Id"]),
+                        Id = Convert.ToInt32(reader["Id"]),
                         Name = reader["Name"].ToString(),
                         Address = reader["Address"].ToString(),
                         Gender = reader["Gender"]?.ToString() ?? "Not Defined",
