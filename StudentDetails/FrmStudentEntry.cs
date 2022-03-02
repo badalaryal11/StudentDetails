@@ -81,14 +81,11 @@ namespace StudentDetails
                 MessageBox.Show("Invalid roll number");
                 return;
             }
-            else 
+            else
             {
                 // true
                 var rollNo = intValue;
             }
-
-            
-           
             MessageBox.Show("You have sucessfully entered the information of student");
            
 
@@ -162,7 +159,7 @@ namespace StudentDetails
 
     public class StudentInfo
     {
-        public Int32 Id { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; }
         public string Address { get; set; }
 

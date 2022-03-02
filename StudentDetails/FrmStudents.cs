@@ -145,6 +145,7 @@ namespace StudentDetails
                     var reader = await cmd.ExecuteReaderAsync();
                     while (await reader.ReadAsync())
                     {
+                        //gridStudents.DataSource = null;
                         studentsList.Add(new Student
                         {
                             Id = Convert.ToInt32(reader["Id"]),
