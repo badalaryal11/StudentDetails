@@ -45,7 +45,7 @@
             this.DESCRIPTION = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.vIEWToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.contextMenuStrip3 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.fILEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.oPENToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sAVEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -57,8 +57,8 @@
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.txtboxSearch = new System.Windows.Forms.ToolStripTextBox();
             this.mnuSearch = new System.Windows.Forms.ToolStripMenuItem();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.contextMenuStrip3 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.cmbSort = new System.Windows.Forms.ToolStripComboBox();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             ((System.ComponentModel.ISupportInitialize)(this.gridStudents)).BeginInit();
             this.mnuRegister.SuspendLayout();
             this.contextMenuStrip2.SuspendLayout();
@@ -143,7 +143,7 @@
             // ROLLNO
             // 
             this.ROLLNO.DataPropertyName = "RollNo";
-            this.ROLLNO.HeaderText = "ROLLNO.";
+            this.ROLLNO.HeaderText = "ROLL NO.";
             this.ROLLNO.Name = "ROLLNO";
             this.ROLLNO.ReadOnly = true;
             // 
@@ -205,20 +205,10 @@
             this.vIEWToolStripMenuItem.Size = new System.Drawing.Size(101, 22);
             this.vIEWToolStripMenuItem.Text = "VIEW";
             // 
-            // menuStrip1
+            // contextMenuStrip3
             // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fILEToolStripMenuItem,
-            this.vIEWToolStripMenuItem2,
-            this.vIEWToolStripMenuItem3,
-            this.toolStripMenuItem1,
-            this.txtboxSearch,
-            this.mnuSearch});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1029, 27);
-            this.menuStrip1.TabIndex = 2;
-            this.menuStrip1.Text = "menuStrip1";
+            this.contextMenuStrip3.Name = "contextMenuStrip3";
+            this.contextMenuStrip3.Size = new System.Drawing.Size(61, 4);
             // 
             // fILEToolStripMenuItem
             // 
@@ -297,16 +287,39 @@
             this.mnuSearch.Name = "mnuSearch";
             this.mnuSearch.Size = new System.Drawing.Size(54, 23);
             this.mnuSearch.Text = "Search";
+            this.mnuSearch.Click += new System.EventHandler(this.mnuSearch_Click);
             // 
-            // contextMenuStrip1
+            // cmbSort
             // 
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            this.cmbSort.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.cmbSort.ForeColor = System.Drawing.SystemColors.InactiveCaption;
+            this.cmbSort.Items.AddRange(new object[] {
+            "NAME",
+            "ADDRESS",
+            "CLASS",
+            "ROLLNO",
+            "NATIONALITY"});
+            this.cmbSort.Name = "cmbSort";
+            this.cmbSort.Size = new System.Drawing.Size(121, 23);
+            this.cmbSort.Text = "Sort by";
+            this.cmbSort.Click += new System.EventHandler(this.cmbSort_Click);
             // 
-            // contextMenuStrip3
+            // menuStrip1
             // 
-            this.contextMenuStrip3.Name = "contextMenuStrip3";
-            this.contextMenuStrip3.Size = new System.Drawing.Size(61, 4);
+            this.menuStrip1.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fILEToolStripMenuItem,
+            this.vIEWToolStripMenuItem2,
+            this.vIEWToolStripMenuItem3,
+            this.toolStripMenuItem1,
+            this.txtboxSearch,
+            this.mnuSearch,
+            this.cmbSort});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1029, 27);
+            this.menuStrip1.TabIndex = 2;
+            this.menuStrip1.Text = "menuStrip1";
             // 
             // FrmStudents
             // 
@@ -337,21 +350,7 @@
         private ToolStripMenuItem vIEWToolStripMenuItem1;
         private ContextMenuStrip contextMenuStrip2;
         private ToolStripMenuItem vIEWToolStripMenuItem;
-        private MenuStrip menuStrip1;
-        private ToolStripMenuItem vIEWToolStripMenuItem2;
-        private ToolStripMenuItem mnuNew;
-        private ToolStripMenuItem vIEWToolStripMenuItem3;
-        private ToolStripMenuItem fILEToolStripMenuItem;
-        private ToolStripMenuItem oPENToolStripMenuItem;
-        private ToolStripMenuItem sAVEToolStripMenuItem;
-        private ToolStripMenuItem sAVEASToolStripMenuItem;
-       
-        private ContextMenuStrip contextMenuStrip1;
         private ContextMenuStrip contextMenuStrip3;
-        private ToolStripTextBox txtboxSearch;
-        private ToolStripMenuItem mnuSearch;
-        private ToolStripMenuItem toolStripMenuItem1;
-        private ToolStripMenuItem mnuUpdate;
         private DataGridViewTextBoxColumn NAME;
         private DataGridViewTextBoxColumn ADDRESS;
         private DataGridViewTextBoxColumn GENDER;
@@ -363,5 +362,18 @@
         private DataGridViewTextBoxColumn FATHERNAME;
         private DataGridViewTextBoxColumn MOTHERNAME;
         private DataGridViewTextBoxColumn DESCRIPTION;
+        private ToolStripMenuItem fILEToolStripMenuItem;
+        private ToolStripMenuItem oPENToolStripMenuItem;
+        private ToolStripMenuItem sAVEToolStripMenuItem;
+        private ToolStripMenuItem sAVEASToolStripMenuItem;
+        private ToolStripMenuItem vIEWToolStripMenuItem2;
+        private ToolStripMenuItem mnuNew;
+        private ToolStripMenuItem mnuUpdate;
+        private ToolStripMenuItem vIEWToolStripMenuItem3;
+        private ToolStripMenuItem toolStripMenuItem1;
+        private ToolStripTextBox txtboxSearch;
+        private ToolStripMenuItem mnuSearch;
+        private ToolStripComboBox cmbSort;
+        private MenuStrip menuStrip1;
     }
 }

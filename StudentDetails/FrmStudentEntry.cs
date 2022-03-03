@@ -86,7 +86,7 @@ namespace StudentDetails
                 // true
                 var rollNo = intValue;
             }
-            MessageBox.Show("You have sucessfully entered the information of student");
+            MessageBox.Show("You have sucessfully entered the information of a student.");
            
 
 
