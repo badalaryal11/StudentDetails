@@ -18,7 +18,7 @@ namespace StudentDetails
             InitializeComponent();
             gridStudents.AutoGenerateColumns = false;
 
-            cmbSort.ComboBox.SelectionChangeCommitted += ComboBox_SelectionChangeCommitted;
+            cmbSort.ComboBox.SelectionChangeCommitted += ComboBox_SelectionChangeCommitted; // selection Control API
         }
 
         private async void ComboBox_SelectionChangeCommitted(object? sender, EventArgs e)
@@ -245,6 +245,74 @@ namespace StudentDetails
 
         }
 
+        //private  async void rowUpdate_Click(object sender, DataGridViewCellEventArgs e)
+        //{
+        //    return;
+        //    var form = new FrmStudentEntry();
+        //    form.ShowDialog();
+
+        //    gridStudents.DataSource = null;
+        //    var studentsList = new List<Student>();
+            
+
+        //    try
+        //    {
+        //        using var conn = new SQLiteConnection(@"Data Source=Students.db;Version=3");
+        //        await conn.OpenAsync();
+        //        var cmd = new SQLiteCommand($@"UPDATE Student SET  Name=?, Address= ?,Gender= ?,RollNo = ?,Class = ?, Status=  ", conn);
+
+
+
+        //        var reader = await cmd.ExecuteReaderAsync();
+        //        while (await reader.ReadAsync())
+        //        {
+
+        //            studentsList.Add(new Student
+        //            {
+        //                Id = Convert.ToInt32(reader["Id"]),
+        //                Name = reader["Name"].ToString(),
+        //                Address = reader["Address"].ToString(),
+        //                Gender = reader["Gender"]?.ToString() ?? "Not Defined",
+        //                Class = reader["Class"].ToString(),
+        //                RollNo = Convert.ToInt32(reader["RollNo"]),
+        //                Status = reader["Status"].ToString(),
+        //                Phone = reader["Phone"].ToString(),
+        //                Nationality = reader["Nationality"].ToString(),
+        //                MotherName = reader["MotherName"].ToString(),
+        //                FatherName = reader["FatherName"].ToString(),
+        //                Description = reader["Description"].ToString()
+        //            });
+
+
+
+        //        }
+        //        //code executes after loop
+        //        gridStudents.DataSource = studentsList; // displays datas from list in a datagrid view.
+        //    }
+
+
+        //    catch (SQLiteException exec)
+        //    {
+        //        MessageBox.Show(exec.Message);
+        //    }
+
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show(ex.Message);
+
+
+
+        //    }
+
+        //}
+
+        private void gridStudents_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (gridStudents.SelectedRows.Count == 0) return;
+
+            var selectedStudent = (StudentDetails.StudentInfo)gridStudents.SelectedRows[0].DataBoundItem;
+            MessageBox.Show(selectedStudent.Name + " - " + selectedStudent.Id);
+        }
     }
 }
 

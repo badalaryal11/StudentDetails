@@ -94,6 +94,7 @@
             this.gridStudents.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridStudents.Size = new System.Drawing.Size(1029, 448);
             this.gridStudents.TabIndex = 1;
+            this.gridStudents.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridStudents_CellDoubleClick);
             // 
             // NAME
             // 
@@ -297,6 +298,7 @@
             "NAME",
             "ADDRESS",
             "CLASS",
+            "Gender",
             "ROLLNO",
             "NATIONALITY"});
             this.cmbSort.Name = "cmbSort";
