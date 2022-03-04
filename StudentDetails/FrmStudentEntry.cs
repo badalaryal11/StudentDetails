@@ -162,6 +162,7 @@ namespace StudentDetails
 
             // form has been displayed in update mode
 
+
             Student student = null;
 
 
@@ -253,5 +254,5 @@ namespace StudentDetails
 
         }
     }
-}
+    }
 
