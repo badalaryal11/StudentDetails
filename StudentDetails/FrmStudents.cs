@@ -1,13 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Data.SQLite;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Data.SQLite;
+using static StudentDetails.FrmStudentEntry;
 
 namespace StudentDetails
 {
@@ -310,10 +302,10 @@ namespace StudentDetails
         {
             if (gridStudents.SelectedRows.Count == 0) return;
 
-            var selectedStudent = (StudentDetails.StudentInfo)gridStudents.SelectedRows[0].DataBoundItem;
-            //MessageBox.Show(selectedStudent.Name + " - " + selectedStudent.Id);
+            var selectedStudent = (StudentInfo)gridStudents.SelectedRows[0].DataBoundItem;
+            MessageBox.Show(selectedStudent.Name + " - " + selectedStudent.Id);
 
-            var form = new FrmStudentEntry(selectedStudent.Id);
+            var form = new FrmStudentEntry();
             form.ShowDialog();
         }
     }

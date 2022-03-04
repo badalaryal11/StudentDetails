@@ -155,6 +155,7 @@ namespace StudentDetails
 
         }
 
+
         private async void FrmStudentEntry_Load(object sender, EventArgs e)
         {
             if (_idToUpdate == 0) return;
@@ -221,33 +222,36 @@ namespace StudentDetails
             txtAddress.Text = student.Address;
             cmbGender.SelectedItem = student.Gender;
             txtclass.Text = student.Class;
-            txtRollNo.Text = student.RollNo.ToString(); 
+            txtRollNo.Text = student.RollNo.ToString();
             txtStatus.SelectedItem = student.Status;
             txtPhone.Text = student.Phone;
             txtNationality.SelectedItem = student.Nationality;
             txtMother.Text = student.MotherName;
             txtFather.Text = student.FatherName;
             txtDescription.Text = student.Description;
+
+        }
+
+
+
+        public class StudentInfo
+        {
+            public int Id { get; set; }
+            public string Name { get; set; }
+            public string Address { get; set; }
+
+            public string Gender { get; set; }
+            public string Class { get; set; }
+            public int RollNo { get; set; }
+            public string Status { get; set; }
+
+            public string Phone { get; set; }
+            public string Nationality { get; set; }
+            public string MotherName { get; set; }
+            public string FatherName { get; set; }
+            public string Description { get; set; }
+
         }
     }
-
-
-    public class StudentInfo
-    {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string Address { get; set; }
-
-        public string Gender { get; set; }
-        public string Class { get; set; }
-        public int RollNo { get; set; }
-        public string Status { get; set; }
-
-        public string Phone { get; set; }
-        public string Nationality { get; set; }
-        public string MotherName { get; set; }
-        public string FatherName { get; set; }
-        public string Description { get; set; }
-
-    }
 }
+
