@@ -5,6 +5,7 @@ namespace StudentDetails
     public partial class FrmStudentEntry : Form
     {
         private readonly int _idToUpdate;
+        public bool DataSavedSuccess { get; private set; }
 
         public FrmStudentEntry(int idToUpdate = 0)
         {
@@ -143,6 +144,7 @@ namespace StudentDetails
 
                 var rowsCount = cmd.ExecuteNonQuery();
                 conn.Close();
+                DataSavedSuccess = true;
             }
             catch (SQLiteException exec)
             {

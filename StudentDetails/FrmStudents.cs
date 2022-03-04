@@ -306,9 +306,16 @@ namespace StudentDetails
             //MessageBox.Show(selectedStudent.Name + " - " + selectedStudent.Id);
 
             var form = new FrmStudentEntry(selectedStudent.Id);
-           // form.selectedStudent.Id;
+            // form.selectedStudent.Id;
             form.ShowDialog();
-            
+            // if()
+
+            if (form.DataSavedSuccess)
+            {
+                MessageBox.Show("Saved Success");
+
+            }
+
         }
     }
 
