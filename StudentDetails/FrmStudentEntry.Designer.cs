@@ -38,7 +38,7 @@
             this.label10 = new System.Windows.Forms.Label();
             this.txtclass = new System.Windows.Forms.TextBox();
             this.txtStatus = new System.Windows.Forms.ComboBox();
-            this.txtGender = new System.Windows.Forms.ComboBox();
+            this.cmbGender = new System.Windows.Forms.ComboBox();
             this.txtFather = new System.Windows.Forms.TextBox();
             this.txtMother = new System.Windows.Forms.TextBox();
             this.txtRollNo = new System.Windows.Forms.TextBox();
@@ -79,7 +79,7 @@
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.txtclass);
             this.groupBox1.Controls.Add(this.txtStatus);
-            this.groupBox1.Controls.Add(this.txtGender);
+            this.groupBox1.Controls.Add(this.cmbGender);
             this.groupBox1.Controls.Add(this.txtFather);
             this.groupBox1.Controls.Add(this.txtMother);
             this.groupBox1.Controls.Add(this.txtRollNo);
@@ -179,15 +179,15 @@
             // 
             // txtGender
             // 
-            this.txtGender.FormattingEnabled = true;
-            this.txtGender.Items.AddRange(new object[] {
+            this.cmbGender.FormattingEnabled = true;
+            this.cmbGender.Items.AddRange(new object[] {
             "MALE",
             "FEMALE",
             "OTHERS"});
-            this.txtGender.Location = new System.Drawing.Point(104, 131);
-            this.txtGender.Name = "txtGender";
-            this.txtGender.Size = new System.Drawing.Size(185, 23);
-            this.txtGender.TabIndex = 13;
+            this.cmbGender.Location = new System.Drawing.Point(104, 131);
+            this.cmbGender.Name = "txtGender";
+            this.cmbGender.Size = new System.Drawing.Size(185, 23);
+            this.cmbGender.TabIndex = 13;
             // 
             // txtFather
             // 
@@ -327,6 +327,7 @@
             this.Name = "FrmStudentEntry";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "STUDENT DETAILS";
+            this.Load += new System.EventHandler(this.FrmStudentEntry_Load);
             this.panel1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -350,7 +351,7 @@
         private Label label5;
         private TextBox txtclass;
         private ComboBox txtStatus;
-        private ComboBox txtGender;
+        private ComboBox cmbGender;
         private TextBox txtFather;
         private TextBox txtMother;
         private TextBox txtRollNo;

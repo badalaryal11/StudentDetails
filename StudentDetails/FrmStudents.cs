@@ -311,9 +311,9 @@ namespace StudentDetails
             if (gridStudents.SelectedRows.Count == 0) return;
 
             var selectedStudent = (StudentDetails.StudentInfo)gridStudents.SelectedRows[0].DataBoundItem;
-            MessageBox.Show(selectedStudent.Name + " - " + selectedStudent.Id);
+            //MessageBox.Show(selectedStudent.Name + " - " + selectedStudent.Id);
 
-            var form = new FrmStudentEntry();
+            var form = new FrmStudentEntry(selectedStudent.Id);
             form.ShowDialog();
         }
     }

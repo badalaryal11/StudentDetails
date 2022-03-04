@@ -4,10 +4,12 @@ namespace StudentDetails
 {
     public partial class FrmStudentEntry : Form
     {
-        
-        public FrmStudentEntry()
+        private readonly int _idToUpdate;
+
+        public FrmStudentEntry(int idToUpdate = 0)
         {
             InitializeComponent();
+            _idToUpdate = idToUpdate;
         }
 
 
@@ -29,7 +31,7 @@ namespace StudentDetails
                 MessageBox.Show("Enter student Address");
                 return;
             }
-            if (string.IsNullOrWhiteSpace(txtGender.Text))
+            if (string.IsNullOrWhiteSpace(cmbGender.Text))
             {
                 MessageBox.Show("Enter student Gender");
                 return;
@@ -88,19 +90,18 @@ namespace StudentDetails
                 var rollNo = intValue;
             }
             MessageBox.Show("You have sucessfully entered the information of a student.");
-           
+
 
 
 
 
 
             var student = new StudentInfo// passing values to the object
-
             {
-                
+
                 Name = txtName.Text.Trim(),
                 Address = txtAddress.Text.Trim(),
-                Gender = txtGender.Text.Trim(),
+                Gender = cmbGender.Text.Trim(),
                 Class = txtclass.Text.Trim(),
                 RollNo = intValue,
                 Status = txtStatus.Text.Trim(),
@@ -112,7 +113,7 @@ namespace StudentDetails
             };
 
 
-            
+
             try
             {
                 using var conn = new SQLiteConnection(@"Data Source=Students.db;Version=3");
@@ -154,7 +155,80 @@ namespace StudentDetails
 
         }
 
+        private async void FrmStudentEntry_Load(object sender, EventArgs e)
+        {
+            if (_idToUpdate == 0) return;
 
+            // form has been displayed in update mode
+
+            Student student = null;
+
+
+            try
+            {
+                using var conn = new SQLiteConnection(@"Data Source=Students.db;Version=3");
+                await conn.OpenAsync();
+
+
+                var cmd = new SQLiteCommand("SELECT * FROM  Student WHERE Id = @prId ", conn)
+                {
+                    CommandType = System.Data.CommandType.Text
+                };
+
+
+                cmd.Parameters.Add(new SQLiteParameter("@prId", _idToUpdate));
+
+
+                var reader = await cmd.ExecuteReaderAsync();
+                while (await reader.ReadAsync())
+                {
+                    student = new Student
+                    {
+                        Id = Convert.ToInt32(reader["Id"]),
+                        Name = reader["Name"].ToString(),
+                        Address = reader["Address"].ToString(),
+                        Gender = reader["Gender"]?.ToString() ?? "Not Defined",
+                        Class = reader["Class"].ToString(),
+                        RollNo = Convert.ToInt32(reader["RollNo"]),
+                        Status = reader["Status"].ToString(),
+                        Phone = reader["Phone"].ToString(),
+                        Nationality = reader["Nationality"].ToString(),
+                        MotherName = reader["MotherName"].ToString(),
+                        FatherName = reader["FatherName"].ToString(),
+                        Description = reader["Description"].ToString()
+                    };
+                }
+
+                if (student == null)
+                {
+                    MessageBox.Show("Unble to load selected student detail.");
+                    Close();
+                    return;
+                }
+            }
+            catch (SQLiteException exec)
+            {
+                MessageBox.Show(exec.Message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+
+            // populate student detail here
+            txtName.Text = student.Name;
+            txtAddress.Text = student.Address;
+            cmbGender.SelectedItem = student.Gender;
+            txtclass.Text = student.Class;
+            txtRollNo.Text = student.RollNo.ToString(); 
+            txtStatus.SelectedItem = student.Status;
+            txtPhone.Text = student.Phone;
+            txtNationality.SelectedItem = student.Nationality;
+            txtMother.Text = student.MotherName;
+            txtFather.Text = student.FatherName;
+            txtDescription.Text = student.Description;
+        }
     }
 
 
