@@ -253,7 +253,7 @@ namespace StudentDetails
 
         //    gridStudents.DataSource = null;
         //    var studentsList = new List<Student>();
-            
+
 
         //    try
         //    {
@@ -312,61 +312,64 @@ namespace StudentDetails
 
             var selectedStudent = (StudentDetails.StudentInfo)gridStudents.SelectedRows[0].DataBoundItem;
             MessageBox.Show(selectedStudent.Name + " - " + selectedStudent.Id);
+
+            var form = new FrmStudentEntry();
+            form.ShowDialog();
         }
     }
-}
 
 
 
-public abstract class StudentBase
-{
-}
-
-public class Student
-{
-    public int Id { get; set; }
-    public string Name { get; set; }
-    public string Address { get; set; }
-    public string Gender { get; set; }
-    public string Class { get; set; }
-    public int RollNo { get; set; }
-    public string Status { get; set; }
-    public string Phone { get; set; }
-    public string Nationality { get; set; }
-    public string MotherName { get; set; }
-    public string FatherName { get; set; }
-    public string Description { get; set; }
-
-    public Student(int id, string name, string address, string gender, string @class, int rollno,// intializing an object
-        string status, string phone, string nation, string mother, string father, string describe)
+    public abstract class StudentBase
     {
-        Id = id;
-        Name = name;
-        Address = address;
-        Gender = gender;
-        Class = @class;
-        RollNo = rollno;
-        Status = status;
-        Phone = phone;
-        Nationality = nation;
-        MotherName = mother;
-        FatherName = father;
-        Description = describe;
     }
 
-    public Student()
+    public class Student
     {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Address { get; set; }
+        public string Gender { get; set; }
+        public string Class { get; set; }
+        public int RollNo { get; set; }
+        public string Status { get; set; }
+        public string Phone { get; set; }
+        public string Nationality { get; set; }
+        public string MotherName { get; set; }
+        public string FatherName { get; set; }
+        public string Description { get; set; }
+
+        public Student(int id, string name, string address, string gender, string @class, int rollno,// intializing an object
+            string status, string phone, string nation, string mother, string father, string describe)
+        {
+            Id = id;
+            Name = name;
+            Address = address;
+            Gender = gender;
+            Class = @class;
+            RollNo = rollno;
+            Status = status;
+            Phone = phone;
+            Nationality = nation;
+            MotherName = mother;
+            FatherName = father;
+            Description = describe;
+        }
+
+        public Student()
+        {
+
+        }
+        public Student(string name, string address)
+        {
+            Name = name;
+            Address = address;
+
+
+
+        }
 
     }
-    public Student(string name, string address)
-    {
-        Name = name;
-        Address = address;
-
-
-
-    }
-
 }
 
 

@@ -4,6 +4,7 @@ namespace StudentDetails
 {
     public partial class FrmStudentEntry : Form
     {
+        
         public FrmStudentEntry()
         {
             InitializeComponent();
