@@ -308,7 +308,7 @@ namespace StudentDetails
             var form = new FrmStudentEntry(selectedStudent.Id);
            // form.selectedStudent.Id;
             form.ShowDialog();
-            form.Btn
+            
         }
     }
 
