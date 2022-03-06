@@ -303,6 +303,7 @@ namespace StudentDetails
             if (gridStudents.SelectedRows.Count == 0) return;
 
             var selectedStudent = (StudentInfo)gridStudents.SelectedRows[0].DataBoundItem;
+            
             //MessageBox.Show(selectedStudent.Name + " - " + selectedStudent.Id);
 
             var form = new FrmStudentEntry(selectedStudent.Id);
