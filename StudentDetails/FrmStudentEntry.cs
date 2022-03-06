@@ -237,6 +237,7 @@ namespace StudentDetails
 
 
 
+
         public class StudentInfo
         {
             public int Id { get; set; }

@@ -312,7 +312,8 @@ namespace StudentDetails
 
             if (form.DataSavedSuccess)
             {
-                MessageBox.Show("Saved Success");
+                
+                MessageBox.Show("Updated sucessfully");
 
             }
 
