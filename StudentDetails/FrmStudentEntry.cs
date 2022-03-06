@@ -181,7 +181,8 @@ namespace StudentDetails
 
 
                 cmd.Parameters.Add(new SQLiteParameter("@prId", _idToUpdate));
-
+               
+               
 
                 var reader = await cmd.ExecuteReaderAsync();
                 while (await reader.ReadAsync())
@@ -232,6 +233,78 @@ namespace StudentDetails
             txtMother.Text = student.MotherName;
             txtFather.Text = student.FatherName;
             txtDescription.Text = student.Description;
+
+            if (string.IsNullOrWhiteSpace(txtName.Text))
+            {
+                MessageBox.Show("Enter student name");
+                return;
+            }
+            if (string.IsNullOrWhiteSpace(txtAddress.Text))
+            {
+                MessageBox.Show("Enter student Address");
+                return;
+            }
+            if (string.IsNullOrWhiteSpace(cmbGender.Text))
+            {
+                MessageBox.Show("Enter student Gender");
+                return;
+            }
+            if (string.IsNullOrWhiteSpace(txtclass.Text))
+            {
+                MessageBox.Show("Enter student class");
+                return;
+            }
+            if (string.IsNullOrWhiteSpace(txtRollNo.Text))
+            {
+                MessageBox.Show("Enter student Roll no.");
+                return;
+            }
+            if (string.IsNullOrWhiteSpace(txtStatus.Text))
+            {
+                MessageBox.Show("Enter student Status");
+                return;
+            }
+            if (string.IsNullOrWhiteSpace(txtPhone.Text))
+            {
+                MessageBox.Show("Enter student phone");
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(txtNationality.Text))
+            {
+                MessageBox.Show("Enter student Nationality");
+                return;
+            }
+            if (string.IsNullOrWhiteSpace(txtMother.Text))
+            {
+                MessageBox.Show("Enter student Mother's name");
+                return;
+            }
+            if (string.IsNullOrWhiteSpace(txtFather.Text))
+            {
+                MessageBox.Show("Enter student Father's Name");
+                return;
+            }
+            if (string.IsNullOrWhiteSpace(txtDescription.Text))
+            {
+                MessageBox.Show("Enter student Description");
+                return;
+            }
+
+            var isInteger = int.TryParse(txtRollNo.Text.Trim(), out var intValue);
+            if (isInteger == false)
+            {
+                MessageBox.Show("Invalid roll number");
+                return;
+            }
+            else
+            {
+                // true
+                var rollNo = intValue;
+            }
+         
+
+
 
         }
 
