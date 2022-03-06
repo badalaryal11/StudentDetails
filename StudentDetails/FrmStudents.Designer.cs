@@ -52,7 +52,7 @@
             this.sAVEASToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.vIEWToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuNew = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuUpdate = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuDelete = new System.Windows.Forms.ToolStripMenuItem();
             this.vIEWToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.txtboxSearch = new System.Windows.Forms.ToolStripTextBox();
@@ -243,7 +243,7 @@
             // 
             this.vIEWToolStripMenuItem2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuNew,
-            this.mnuUpdate});
+            this.mnuDelete});
             this.vIEWToolStripMenuItem2.Name = "vIEWToolStripMenuItem2";
             this.vIEWToolStripMenuItem2.Size = new System.Drawing.Size(42, 23);
             this.vIEWToolStripMenuItem2.Text = "EDIT";
@@ -251,16 +251,16 @@
             // mnuNew
             // 
             this.mnuNew.Name = "mnuNew";
-            this.mnuNew.Size = new System.Drawing.Size(116, 22);
+            this.mnuNew.Size = new System.Drawing.Size(180, 22);
             this.mnuNew.Text = "NEW";
             this.mnuNew.Click += new System.EventHandler(this.mnuNew_Click);
             // 
-            // mnuUpdate
+            // mnuDelete
             // 
-            this.mnuUpdate.Name = "mnuUpdate";
-            this.mnuUpdate.Size = new System.Drawing.Size(116, 22);
-            this.mnuUpdate.Text = "UPDATE";
-            this.mnuUpdate.Click += new System.EventHandler(this.mnuNew_Click);
+            this.mnuDelete.Name = "mnuDelete";
+            this.mnuDelete.Size = new System.Drawing.Size(180, 22);
+            this.mnuDelete.Text = "DELETE";
+            this.mnuDelete.Click += new System.EventHandler(this.mnuDelete_Click);
             // 
             // vIEWToolStripMenuItem3
             // 
@@ -370,12 +370,12 @@
         private ToolStripMenuItem sAVEASToolStripMenuItem;
         private ToolStripMenuItem vIEWToolStripMenuItem2;
         private ToolStripMenuItem mnuNew;
-        private ToolStripMenuItem mnuUpdate;
         private ToolStripMenuItem vIEWToolStripMenuItem3;
         private ToolStripMenuItem toolStripMenuItem1;
         private ToolStripTextBox txtboxSearch;
         private ToolStripMenuItem mnuSearch;
         private ToolStripComboBox cmbSort;
         private MenuStrip menuStrip1;
+        private ToolStripMenuItem mnuDelete;
     }
 }

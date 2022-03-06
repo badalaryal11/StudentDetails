@@ -165,29 +165,30 @@ namespace StudentDetails
             // form has been displayed in update mode
 
 
-            Student student = null;
+            StudentInfo student = null;
 
 
             try
             {
                 using var conn = new SQLiteConnection(@"Data Source=Students.db;Version=3");
                 await conn.OpenAsync();
+               ;
+               
 
+                var cmd = new SQLiteCommand("UPDATE * SET Name ='Name' WHERE Id = '@prId' ", conn)
+               
 
-                var cmd = new SQLiteCommand("SELECT * FROM  Student WHERE Id = @prId ", conn)
-                {
+                 {
                     CommandType = System.Data.CommandType.Text
                 };
-
+             
 
                 cmd.Parameters.Add(new SQLiteParameter("@prId", _idToUpdate));
-               
-               
-
                 var reader = await cmd.ExecuteReaderAsync();
+                
                 while (await reader.ReadAsync())
                 {
-                    student = new Student
+                    student = new StudentInfo
                     {
                         Id = Convert.ToInt32(reader["Id"]),
                         Name = reader["Name"].ToString(),
