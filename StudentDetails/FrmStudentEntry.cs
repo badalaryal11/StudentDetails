@@ -175,7 +175,7 @@ namespace StudentDetails
                ;
                
 
-                var cmd = new SQLiteCommand("UPDATE * SET Name ='Name' WHERE Id = '@prId' ", conn)
+                var cmd = new SQLiteCommand("SELECT * FROM Student WHERE Id = '@prId' ", conn)
                
 
                  {
