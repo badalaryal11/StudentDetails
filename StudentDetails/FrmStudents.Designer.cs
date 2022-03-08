@@ -251,14 +251,14 @@
             // mnuNew
             // 
             this.mnuNew.Name = "mnuNew";
-            this.mnuNew.Size = new System.Drawing.Size(180, 22);
+            this.mnuNew.Size = new System.Drawing.Size(112, 22);
             this.mnuNew.Text = "NEW";
             this.mnuNew.Click += new System.EventHandler(this.mnuNew_Click);
             // 
             // mnuDelete
             // 
             this.mnuDelete.Name = "mnuDelete";
-            this.mnuDelete.Size = new System.Drawing.Size(180, 22);
+            this.mnuDelete.Size = new System.Drawing.Size(112, 22);
             this.mnuDelete.Text = "DELETE";
             this.mnuDelete.Click += new System.EventHandler(this.mnuDelete_Click);
             // 
@@ -335,6 +335,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Students List";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.FrmStudents_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridStudents)).EndInit();
             this.mnuRegister.ResumeLayout(false);
             this.contextMenuStrip2.ResumeLayout(false);

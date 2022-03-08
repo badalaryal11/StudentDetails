@@ -31,7 +31,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtDescription = new System.Windows.Forms.TextBox();
-            this.btnRegister = new System.Windows.Forms.Button();
+            this.btnSubmit = new System.Windows.Forms.Button();
             this.txtNationality = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
             this.txtPhone = new System.Windows.Forms.TextBox();
@@ -72,7 +72,7 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.txtDescription);
-            this.groupBox1.Controls.Add(this.btnRegister);
+            this.groupBox1.Controls.Add(this.btnSubmit);
             this.groupBox1.Controls.Add(this.txtNationality);
             this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.txtPhone);
@@ -111,15 +111,15 @@
             this.txtDescription.Size = new System.Drawing.Size(535, 96);
             this.txtDescription.TabIndex = 21;
             // 
-            // btnRegister
+            // btnSubmit
             // 
-            this.btnRegister.Location = new System.Drawing.Point(684, 415);
-            this.btnRegister.Name = "btnRegister";
-            this.btnRegister.Size = new System.Drawing.Size(75, 23);
-            this.btnRegister.TabIndex = 22;
-            this.btnRegister.Text = "SUBMIT";
-            this.btnRegister.UseVisualStyleBackColor = true;
-            this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
+            this.btnSubmit.Location = new System.Drawing.Point(684, 415);
+            this.btnSubmit.Name = "btnSubmit";
+            this.btnSubmit.Size = new System.Drawing.Size(75, 23);
+            this.btnSubmit.TabIndex = 22;
+            this.btnSubmit.Text = "SUBMIT";
+            this.btnSubmit.UseVisualStyleBackColor = true;
+            this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
             // txtNationality
             // 
@@ -177,7 +177,7 @@
             this.txtStatus.Size = new System.Drawing.Size(143, 23);
             this.txtStatus.TabIndex = 16;
             // 
-            // txtGender
+            // cmbGender
             // 
             this.cmbGender.FormattingEnabled = true;
             this.cmbGender.Items.AddRange(new object[] {
@@ -185,7 +185,7 @@
             "FEMALE",
             "OTHERS"});
             this.cmbGender.Location = new System.Drawing.Point(104, 131);
-            this.cmbGender.Name = "txtGender";
+            this.cmbGender.Name = "cmbGender";
             this.cmbGender.Size = new System.Drawing.Size(185, 23);
             this.cmbGender.TabIndex = 13;
             // 
@@ -362,7 +362,7 @@
         private Label label11;
         private TextBox txtPhone;
         private Label label10;
-        private Button btnRegister;
+        private Button btnSubmit;
         private TextBox txtDescription;
     }
 }

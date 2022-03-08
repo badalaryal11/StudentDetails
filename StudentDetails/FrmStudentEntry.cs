@@ -14,14 +14,8 @@ namespace StudentDetails
         }
 
 
-        private void btnRegister_Click(object sender, EventArgs e)
+        private async void btnSubmit_Click(object sender, EventArgs e)
         {
-
-
-            //FrmStudentEntry frm2 = new FrmStudentEntry();
-            //gridStudents.Rows.Add()(txtName.Text,txtAddress.Text,txtGender.Text,txtclass.Text,txtRollNo.Text,)
-
-
             if (string.IsNullOrWhiteSpace(txtName.Text))
             {
                 MessageBox.Show("Enter student name");
@@ -90,16 +84,9 @@ namespace StudentDetails
                 // true
                 var rollNo = intValue;
             }
-            MessageBox.Show("You have sucessfully entered the information of a student.");
-
-
-
-
-
-
-            var student = new StudentInfo// passing values to the object
+            
+            var student = new StudentDto
             {
-
                 Name = txtName.Text.Trim(),
                 Address = txtAddress.Text.Trim(),
                 Gender = cmbGender.Text.Trim(),
@@ -110,51 +97,22 @@ namespace StudentDetails
                 Nationality = txtNationality.Text.Trim(),
                 MotherName = txtMother.Text.Trim(),
                 FatherName = txtFather.Text.Trim(),
-                Description = txtDescription.Text.Trim()
+                Description = txtDescription.Text.Trim(),
+                Id = _idToUpdate
             };
 
 
+            var handler = new StudentHandler();
+            var result = _idToUpdate <= 0 ? await handler.InsertAsync(student) : await handler.UpdateAsync(student); 
 
-            try
+            if (!result.Success)
             {
-                using var conn = new SQLiteConnection(@"Data Source=Students.db;Version=3");
-                conn.Open();
-
-
-                var cmd = new SQLiteCommand(
-                    $@"INSERT INTO Student (Name, Address,Gender,Class,RollNo,Status,Phone,Nationality,MotherName,FatherName,Description) 
-                   VALUES (@prName, @prAddress, @prGender, @prClass, @prRoll, @prStatus, @prPhone, @prNationality,
-                            @prMother, @prFather, @prDescription )", conn)
-                {
-                    CommandType = System.Data.CommandType.Text
-                };
-
-
-                cmd.Parameters.Add(new SQLiteParameter("@prName", student.Name));
-                cmd.Parameters.Add(new SQLiteParameter("@prAddress", student.Address));
-                cmd.Parameters.Add(new SQLiteParameter("@prGender", student.Gender));
-                cmd.Parameters.Add(new SQLiteParameter("@prClass", student.Class));
-                cmd.Parameters.Add(new SQLiteParameter("@prRoll", student.RollNo));
-                cmd.Parameters.Add(new SQLiteParameter("@prStatus", student.Status));
-                cmd.Parameters.Add(new SQLiteParameter("@prPhone", student.Phone));
-                cmd.Parameters.Add(new SQLiteParameter("@prNationality", student.Nationality));
-                cmd.Parameters.Add(new SQLiteParameter("@prMother", student.MotherName));
-                cmd.Parameters.Add(new SQLiteParameter("@prFather", student.FatherName));
-                cmd.Parameters.Add(new SQLiteParameter("@prDescription", student.Description));
-
-                var rowsCount = cmd.ExecuteNonQuery();
-                conn.Close();
-                DataSavedSuccess = true;
-            }
-            catch (SQLiteException exec)
-            {
-                MessageBox.Show(exec.Message);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(result.ErrorMessage);
+                return;
             }
 
+            DataSavedSuccess = true;
+            MessageBox.Show("Saved Successfully");
         }
 
 
@@ -206,8 +164,8 @@ namespace StudentDetails
             public string MotherName { get; set; }
             public string FatherName { get; set; }
             public string Description { get; set; }
-            
+
         }
     }
-    }
+}
 

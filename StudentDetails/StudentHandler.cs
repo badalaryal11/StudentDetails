@@ -65,33 +65,31 @@ namespace StudentDetails
                 await conn.OpenAsync();
 
 
-                var cmd = new SQLiteCommand($@"UPDATE Student  SET Name = @prName, Address = @prAddress, Gender = @prGender, Class = @prClass,RollNo=@RollNo,Status=@Status,Phone=@Phone,Nationality=@Nationality,
-                MotherName = @MotherName,FatherName= @FatherName,Description = @Description where Name =@prname", conn)
+                var cmd = new SQLiteCommand($@"UPDATE Student  SET Name = @prName, Address = @prAddress, Gender = @prGender, 
+                 Class = @prClass,RollNo=@prRollNo,Status=@prStatus,Phone=@prPhone,Nationality=@prNationality,
+                MotherName = @prMother,FatherName= @prFather,Description = @prDescription WHERE Id =@prId ", conn)
                 {
                     CommandType = System.Data.CommandType.Text
                 };
-
 
                 cmd.Parameters.Add(new SQLiteParameter("@prName", dto.Name));
                 cmd.Parameters.Add(new SQLiteParameter("@prAddress", dto.Address));
                 cmd.Parameters.Add(new SQLiteParameter("@prGender", dto.Gender));
                 cmd.Parameters.Add(new SQLiteParameter("@prClass", dto.Class));
-                cmd.Parameters.Add(new SQLiteParameter("@prRoll", dto.RollNo));
+                cmd.Parameters.Add(new SQLiteParameter("@prRollNo", dto.RollNo));
                 cmd.Parameters.Add(new SQLiteParameter("@prStatus", dto.Status));
                 cmd.Parameters.Add(new SQLiteParameter("@prPhone", dto.Phone));
                 cmd.Parameters.Add(new SQLiteParameter("@prNationality", dto.Nationality));
                 cmd.Parameters.Add(new SQLiteParameter("@prMother", dto.MotherName));
                 cmd.Parameters.Add(new SQLiteParameter("@prFather", dto.FatherName));
                 cmd.Parameters.Add(new SQLiteParameter("@prDescription", dto.Description));
+                cmd.Parameters.Add(new SQLiteParameter("@prId", dto.Id));
 
                 result.RowsAffected = await cmd.ExecuteNonQueryAsync();
                 conn.Close();
 
                 result.Success = result.RowsAffected > 0;
             }
-            
-            
-            
             catch (SQLiteException exec)
             {
                 result.ErrorMessage = exec.Message;

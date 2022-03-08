@@ -65,39 +65,11 @@ namespace StudentDetails
 
         private async Task LoadDataAsync()
         {
+            gridStudents.DataSource = null;
+            var handler = new StudentHandler();
+            var result = await handler.GetStudentsListAsync();
 
-            var dictionary = new Dictionary<int, string>();
-
-
-            try
-            {
-                using var conn = new SQLiteConnection(@"Data Source=Students.db;Version=3");
-                await conn.OpenAsync();
-
-                var cmd = new SQLiteCommand(@"SELECT * FROM Student", conn)
-                {
-                    CommandType = System.Data.CommandType.Text
-                };
-
-                var reader = await cmd.ExecuteReaderAsync();
-
-                while (await reader.ReadAsync())
-                {
-                    dictionary.Add(Convert.ToInt32(reader["Id"]), (string)reader["Name"]);
-
-
-                }
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show(e.Message);
-            }
-
-
-
-
-
-
+            gridStudents.DataSource = result.List;
         }
 
 
@@ -109,70 +81,7 @@ namespace StudentDetails
 
         private async void vIEWToolStripMenuItem3_Click(object sender, EventArgs e)
         {
-            gridStudents.DataSource = null;
-            var handler = new StudentHandler();
-            var result = await handler.GetStudentsListAsync();
-
-
-            gridStudents.DataSource = result.List;
-
-
-
-            //var studentsList = new List<StudentInfo>();// list is initialized
-
-            //try
-
-
-            //{
-            //    using var conn = new SQLiteConnection(@"Data Source=Students.db;Version=3");
-            //    await conn.OpenAsync();
-            //    var cmd = new SQLiteCommand("SELECT * FROM Student", conn);
-            //    var reader = await cmd.ExecuteReaderAsync();
-
-            //    while (await reader.ReadAsync())
-            //    {
-            //        studentsList.Add(new StudentInfo
-            //        {
-
-            //            Id = Convert.ToInt32(reader["Id"]),
-            //            Name = reader["Name"].ToString(),
-            //            Address = reader["Address"].ToString(),
-            //            Gender = reader["Gender"]?.ToString() ?? "Not Defined",
-            //            Class = reader["Class"].ToString(),
-            //            RollNo = Convert.ToInt32(reader["RollNo"]),
-            //            Status = reader["Status"].ToString(),
-            //            Phone = reader["Phone"].ToString(),
-            //            Nationality = reader["Nationality"].ToString(),
-            //            MotherName = reader["MotherName"].ToString(),
-            //            FatherName = reader["FatherName"].ToString(),
-            //            Description = reader["Description"].ToString()
-
-
-            //        });
-
-
-
-
-            //    }
-
-            //    gridStudents.DataSource = studentsList;
-
-
-            //}
-
-            //catch (SQLiteException exec)
-            //{
-            //    MessageBox.Show(exec.Message);
-            //}
-
-
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show(ex.Message);
-
-
-
-            //}
+            await LoadDataAsync();
         }
 
         private async void mnuSearch_Click(object sender, EventArgs e) // MENU TO SEARCH
@@ -300,9 +209,9 @@ namespace StudentDetails
 
         //}
 
-        private  async void gridStudents_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private async void gridStudents_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            
+
             if (gridStudents.SelectedRows.Count == 0) return;
 
             var selectedStudent = (StudentDto)gridStudents.SelectedRows[0].DataBoundItem;
@@ -312,22 +221,12 @@ namespace StudentDetails
             var form = new FrmStudentEntry(selectedStudent.Id);
             // form.selectedStudent.Id;
             form.ShowDialog();
-            gridStudents.DataSource = null;
-            var handler2 = new StudentHandler();
-            var result2 = await handler2.UpdateAsync(null);
-           
-            gridStudents.DataSource = result2.List;
-
-
 
             if (form.DataSavedSuccess)
             {
-
                 MessageBox.Show("You have sucessfully updated the data.");
-
+                await LoadDataAsync();
             }
-           
-
         }
 
         private async void mnuDelete_Click(object sender, EventArgs e)
@@ -358,7 +257,7 @@ namespace StudentDetails
 
 
 
-                        
+
                 }
 
 
@@ -376,6 +275,11 @@ namespace StudentDetails
 
                 }
             }
+        }
+
+        private async void FrmStudents_Load(object sender, EventArgs e)
+        {
+            await LoadDataAsync();
         }
 
         public class Student
@@ -423,7 +327,7 @@ namespace StudentDetails
 
             }
 
-        }
+        }        
     }
 }
 
