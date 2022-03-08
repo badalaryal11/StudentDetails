@@ -162,151 +162,29 @@ namespace StudentDetails
         {
             if (_idToUpdate == 0) return;
 
-            // form has been displayed in update mode
 
 
-            StudentInfo student = null;
-
-
-            try
+            var handler = new StudentHandler();
+            var result = await handler.GetStudentAsync(_idToUpdate);
+            if (!result.Success)
             {
-                using var conn = new SQLiteConnection(@"Data Source=Students.db;Version=3");
-                await conn.OpenAsync();
-               ;
-               
-
-                var cmd = new SQLiteCommand("SELECT * FROM Student WHERE Id = '@prId' ", conn)
-               
-
-                 {
-                    CommandType = System.Data.CommandType.Text
-                };
-             
-
-                cmd.Parameters.Add(new SQLiteParameter("@prId", _idToUpdate));
-                var reader = await cmd.ExecuteReaderAsync();
-                
-                while (await reader.ReadAsync())
-                {
-                    student = new StudentInfo
-                    {
-                        Id = Convert.ToInt32(reader["Id"]),
-                        Name = reader["Name"].ToString(),
-                        Address = reader["Address"].ToString(),
-                        Gender = reader["Gender"]?.ToString() ?? "Not Defined",
-                        Class = reader["Class"].ToString(),
-                        RollNo = Convert.ToInt32(reader["RollNo"]),
-                        Status = reader["Status"].ToString(),
-                        Phone = reader["Phone"].ToString(),
-                        Nationality = reader["Nationality"].ToString(),
-                        MotherName = reader["MotherName"].ToString(),
-                        FatherName = reader["FatherName"].ToString(),
-                        Description = reader["Description"].ToString()
-                    };
-                }
-
-                if (student == null)
-                {
-                    MessageBox.Show("Unble to load selected student detail.");
-                    Close();
-                    return;
-                }
+                MessageBox.Show("Unable to load selected student detail.");
+                Close();
+                return;
             }
-            catch (SQLiteException exec)
-            {
-                MessageBox.Show(exec.Message);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-
 
             // populate student detail here
-            txtName.Text = student.Name;
-            txtAddress.Text = student.Address;
-            cmbGender.SelectedItem = student.Gender;
-            txtclass.Text = student.Class;
-            txtRollNo.Text = student.RollNo.ToString();
-            txtStatus.SelectedItem = student.Status;
-            txtPhone.Text = student.Phone;
-            txtNationality.SelectedItem = student.Nationality;
-            txtMother.Text = student.MotherName;
-            txtFather.Text = student.FatherName;
-            txtDescription.Text = student.Description;
-
-            if (string.IsNullOrWhiteSpace(txtName.Text))
-            {
-                MessageBox.Show("Enter student name");
-                return;
-            }
-            if (string.IsNullOrWhiteSpace(txtAddress.Text))
-            {
-                MessageBox.Show("Enter student Address");
-                return;
-            }
-            if (string.IsNullOrWhiteSpace(cmbGender.Text))
-            {
-                MessageBox.Show("Enter student Gender");
-                return;
-            }
-            if (string.IsNullOrWhiteSpace(txtclass.Text))
-            {
-                MessageBox.Show("Enter student class");
-                return;
-            }
-            if (string.IsNullOrWhiteSpace(txtRollNo.Text))
-            {
-                MessageBox.Show("Enter student Roll no.");
-                return;
-            }
-            if (string.IsNullOrWhiteSpace(txtStatus.Text))
-            {
-                MessageBox.Show("Enter student Status");
-                return;
-            }
-            if (string.IsNullOrWhiteSpace(txtPhone.Text))
-            {
-                MessageBox.Show("Enter student phone");
-                return;
-            }
-
-            if (string.IsNullOrWhiteSpace(txtNationality.Text))
-            {
-                MessageBox.Show("Enter student Nationality");
-                return;
-            }
-            if (string.IsNullOrWhiteSpace(txtMother.Text))
-            {
-                MessageBox.Show("Enter student Mother's name");
-                return;
-            }
-            if (string.IsNullOrWhiteSpace(txtFather.Text))
-            {
-                MessageBox.Show("Enter student Father's Name");
-                return;
-            }
-            if (string.IsNullOrWhiteSpace(txtDescription.Text))
-            {
-                MessageBox.Show("Enter student Description");
-                return;
-            }
-
-            var isInteger = int.TryParse(txtRollNo.Text.Trim(), out var intValue);
-            if (isInteger == false)
-            {
-                MessageBox.Show("Invalid roll number");
-                return;
-            }
-            else
-            {
-                // true
-                var rollNo = intValue;
-            }
-         
-
-
-
+            txtName.Text = result.Dto.Name;
+            txtAddress.Text = result.Dto.Address;
+            cmbGender.SelectedItem = result.Dto.Gender;
+            txtclass.Text = result.Dto.Class;
+            txtRollNo.Text = result.Dto.RollNo.ToString();
+            txtStatus.SelectedItem = result.Dto.Status;
+            txtPhone.Text = result.Dto.Phone;
+            txtNationality.SelectedItem = result.Dto.Nationality;
+            txtMother.Text = result.Dto.MotherName;
+            txtFather.Text = result.Dto.FatherName;
+            txtDescription.Text = result.Dto.Description;
         }
 
 
