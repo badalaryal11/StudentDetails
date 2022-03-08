@@ -300,8 +300,9 @@ namespace StudentDetails
 
         //}
 
-        private void gridStudents_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private  async void gridStudents_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            
             if (gridStudents.SelectedRows.Count == 0) return;
 
             var selectedStudent = (StudentDto)gridStudents.SelectedRows[0].DataBoundItem;
@@ -311,14 +312,21 @@ namespace StudentDetails
             var form = new FrmStudentEntry(selectedStudent.Id);
             // form.selectedStudent.Id;
             form.ShowDialog();
-            // if()
+            gridStudents.DataSource = null;
+            var handler2 = new StudentHandler();
+            var result2 = await handler2.UpdateAsync(null);
+           
+            gridStudents.DataSource = result2.List;
+
+
 
             if (form.DataSavedSuccess)
             {
 
-
+                MessageBox.Show("You have sucessfully updated the data.");
 
             }
+           
 
         }
 

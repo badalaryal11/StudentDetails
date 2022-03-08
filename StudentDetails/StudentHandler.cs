@@ -65,8 +65,8 @@ namespace StudentDetails
                 await conn.OpenAsync();
 
 
-                var cmd = new SQLiteCommand($@"UPDATE Student  SET Name = @prName, Address = @prAddress, Gender = @prGender, Class = @prClass,RollNo=@RollNo,Status=@Status,Phone=@Phone,Nationality=@Nationality,MotherName = @MotherName,FatherName= @FatherName,Description = @Description 
-                  ", conn)
+                var cmd = new SQLiteCommand($@"UPDATE Student  SET Name = @prName, Address = @prAddress, Gender = @prGender, Class = @prClass,RollNo=@RollNo,Status=@Status,Phone=@Phone,Nationality=@Nationality,
+                MotherName = @MotherName,FatherName= @FatherName,Description = @Description where Name =@prname", conn)
                 {
                     CommandType = System.Data.CommandType.Text
                 };
@@ -89,6 +89,9 @@ namespace StudentDetails
 
                 result.Success = result.RowsAffected > 0;
             }
+            
+            
+            
             catch (SQLiteException exec)
             {
                 result.ErrorMessage = exec.Message;
@@ -238,6 +241,7 @@ namespace StudentDetails
         public string ErrorMessage { get; set; }
         public bool Success { get; set; }
         public IList<T> List { get; set; }
+        
     }
 
     // DTO: data transfer object; used to transfer data/values between layers/units
