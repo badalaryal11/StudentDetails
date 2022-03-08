@@ -18,58 +18,70 @@ namespace StudentDetails
         {
             if (string.IsNullOrWhiteSpace(txtName.Text))
             {
-                MessageBox.Show("Enter student name");
+                //               MessageBox.Show("Enter student name");
+                errorProvider1.SetError(txtName, "Enter student name");
                 return;
             }
             if (string.IsNullOrWhiteSpace(txtAddress.Text))
             {
-                MessageBox.Show("Enter student Address");
+                //MessageBox.Show("Enter student Address");
+                errorProvider1.SetError(txtAddress, "Enter student Address");
                 return;
             }
             if (string.IsNullOrWhiteSpace(cmbGender.Text))
             {
-                MessageBox.Show("Enter student Gender");
+                //MessageBox.Show("Enter student Gender");
+                errorProvider1.SetError(cmbGender, "Enter student Gender");
+
                 return;
             }
-            if (string.IsNullOrWhiteSpace(txtclass.Text))
+              if (string.IsNullOrWhiteSpace(txtclass.Text))
             {
-                MessageBox.Show("Enter student class");
+                //MessageBox.Show("Enter student class");
+                errorProvider1.SetError(txtclass, "Enter student Class");
                 return;
             }
-            if (string.IsNullOrWhiteSpace(txtRollNo.Text))
+              if (string.IsNullOrWhiteSpace(txtRollNo.Text))
             {
-                MessageBox.Show("Enter student Roll no.");
+                //MessageBox.Show("Enter student Roll no.");
+                errorProvider1.SetError(txtRollNo, "Enter student RollNo");
                 return;
             }
-            if (string.IsNullOrWhiteSpace(txtStatus.Text))
+             if (string.IsNullOrWhiteSpace(txtStatus.Text))
             {
-                MessageBox.Show("Enter student Status");
+                //MessageBox.Show("Enter student Status");
+                errorProvider1.SetError(txtStatus, "Enter student status");
                 return;
             }
-            if (string.IsNullOrWhiteSpace(txtPhone.Text))
+             if (string.IsNullOrWhiteSpace(txtPhone.Text))
             {
-                MessageBox.Show("Enter student phone");
+                //MessageBox.Show("Enter student phone");
+                errorProvider1.SetError(txtPhone, "Enter student Phone");
                 return;
             }
 
-            if (string.IsNullOrWhiteSpace(txtNationality.Text))
+             if (string.IsNullOrWhiteSpace(txtNationality.Text))
             {
-                MessageBox.Show("Enter student Nationality");
+                //MessageBox.Show("Enter student Nationality");
+                errorProvider1.SetError(txtNationality, "Enter student Phone");
                 return;
             }
-            if (string.IsNullOrWhiteSpace(txtMother.Text))
+             if (string.IsNullOrWhiteSpace(txtMother.Text))
             {
-                MessageBox.Show("Enter student Mother's name");
+                // MessageBox.Show("Enter student Mother's name");
+                errorProvider1.SetError(txtMother, "Enter student's MotherName");
                 return;
             }
-            if (string.IsNullOrWhiteSpace(txtFather.Text))
+             if (string.IsNullOrWhiteSpace(txtFather.Text))
             {
-                MessageBox.Show("Enter student Father's Name");
+                // MessageBox.Show("Enter student Father's Name");
+                errorProvider1.SetError(txtFather, "Enter student's FatherName");
                 return;
             }
             if (string.IsNullOrWhiteSpace(txtDescription.Text))
             {
-                MessageBox.Show("Enter student Description");
+                //MessageBox.Show("Enter student Description");
+                errorProvider1.SetError(txtDescription, "Enter student's Description");
                 return;
             }
 
