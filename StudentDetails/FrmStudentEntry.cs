@@ -35,44 +35,44 @@ namespace StudentDetails
 
                 return;
             }
-              if (string.IsNullOrWhiteSpace(txtclass.Text))
+            if (string.IsNullOrWhiteSpace(txtclass.Text))
             {
                 //MessageBox.Show("Enter student class");
                 errorProvider1.SetError(txtclass, "Enter student Class");
                 return;
             }
-              if (string.IsNullOrWhiteSpace(txtRollNo.Text))
+            if (string.IsNullOrWhiteSpace(txtRollNo.Text))
             {
                 //MessageBox.Show("Enter student Roll no.");
                 errorProvider1.SetError(txtRollNo, "Enter student RollNo");
                 return;
             }
-             if (string.IsNullOrWhiteSpace(txtStatus.Text))
+            if (string.IsNullOrWhiteSpace(txtStatus.Text))
             {
                 //MessageBox.Show("Enter student Status");
                 errorProvider1.SetError(txtStatus, "Enter student status");
                 return;
             }
-             if (string.IsNullOrWhiteSpace(txtPhone.Text))
+            if (string.IsNullOrWhiteSpace(txtPhone.Text))
             {
                 //MessageBox.Show("Enter student phone");
                 errorProvider1.SetError(txtPhone, "Enter student Phone");
                 return;
             }
 
-             if (string.IsNullOrWhiteSpace(txtNationality.Text))
+            if (string.IsNullOrWhiteSpace(txtNationality.Text))
             {
                 //MessageBox.Show("Enter student Nationality");
                 errorProvider1.SetError(txtNationality, "Enter student Phone");
                 return;
             }
-             if (string.IsNullOrWhiteSpace(txtMother.Text))
+            if (string.IsNullOrWhiteSpace(txtMother.Text))
             {
                 // MessageBox.Show("Enter student Mother's name");
                 errorProvider1.SetError(txtMother, "Enter student's MotherName");
                 return;
             }
-             if (string.IsNullOrWhiteSpace(txtFather.Text))
+            if (string.IsNullOrWhiteSpace(txtFather.Text))
             {
                 // MessageBox.Show("Enter student Father's Name");
                 errorProvider1.SetError(txtFather, "Enter student's FatherName");
@@ -96,7 +96,16 @@ namespace StudentDetails
                 // true
                 var rollNo = intValue;
             }
-            
+
+            byte[] photoBytes = null;
+            if (pictureBox1.Image != null)
+            {
+                using var stream = new MemoryStream();
+                pictureBox1.Image.Save(stream, pictureBox1.Image.RawFormat);
+
+                photoBytes = stream.ToArray();
+            }
+
             var student = new StudentDto
             {
                 Name = txtName.Text.Trim(),
@@ -110,12 +119,13 @@ namespace StudentDetails
                 MotherName = txtMother.Text.Trim(),
                 FatherName = txtFather.Text.Trim(),
                 Description = txtDescription.Text.Trim(),
-                Id = _idToUpdate
+                Id = _idToUpdate,
+                Photo = photoBytes
             };
 
 
             var handler = new StudentHandler();
-            var result = _idToUpdate <= 0 ? await handler.InsertAsync(student) : await handler.UpdateAsync(student); 
+            var result = _idToUpdate <= 0 ? await handler.InsertAsync(student) : await handler.UpdateAsync(student);
 
             if (!result.Success)
             {
@@ -155,6 +165,13 @@ namespace StudentDetails
             txtMother.Text = result.Dto.MotherName;
             txtFather.Text = result.Dto.FatherName;
             txtDescription.Text = result.Dto.Description;
+            
+            if (result.Dto.Photo != null)
+            {
+                using var stream = new MemoryStream(result.Dto.Photo);
+                stream.Seek(0, SeekOrigin.Begin);
+                pictureBox1.Image = Image.FromStream(stream);
+            }
         }
 
 
@@ -177,6 +194,30 @@ namespace StudentDetails
             public string FatherName { get; set; }
             public string Description { get; set; }
 
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnBrowse_Click(object sender, EventArgs e)
+        {
+            using var dialog = new OpenFileDialog
+            {
+                Title = "Select a photo",
+                Filter = @"Image Files(*.BMP;*.JPG;*.GIF)|*.BMP;*.JPG;*.GIF|All files (*.*)|*.*",
+                CheckFileExists = true,
+            };
+
+            if (dialog.ShowDialog() != DialogResult.OK) return;
+
+            pictureBox1.Image = Image.FromFile(dialog.FileName);
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            pictureBox1.Image = null;
         }
     }
 }

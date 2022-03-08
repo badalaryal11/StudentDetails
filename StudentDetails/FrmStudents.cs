@@ -11,6 +11,8 @@ namespace StudentDetails
             gridStudents.AutoGenerateColumns = false;
 
             cmbSort.ComboBox.SelectionChangeCommitted += ComboBox_SelectionChangeCommitted; // selection Control API
+
+            ((DataGridViewImageColumn)this. gridStudents.Columns["colImage"]).DefaultCellStyle.NullValue = null;
         }
 
         private async void ComboBox_SelectionChangeCommitted(object? sender, EventArgs e)

@@ -15,12 +15,12 @@ namespace StudentDetails
             try
             {
                 using var conn = new SQLiteConnection(CONNECTION_STRING);
-                await conn.OpenAsync(); 
+                await conn.OpenAsync();
 
 
-                var cmd = new SQLiteCommand($@"INSERT INTO Student (Name, Address,Gender,Class,RollNo,Status,Phone,Nationality,MotherName,FatherName,Description) 
+                var cmd = new SQLiteCommand($@"INSERT INTO Student (Name, Address,Gender,Class,RollNo,Status,Phone,Nationality,MotherName,FatherName,Description, Photo) 
                    VALUES (@prName, @prAddress, @prGender, @prClass, @prRoll, @prStatus, @prPhone, @prNationality,
-                            @prMother, @prFather, @prDescription )", conn)
+                            @prMother, @prFather, @prDescription, @prPhoto )", conn)
                 {
                     CommandType = System.Data.CommandType.Text
                 };
@@ -37,6 +37,7 @@ namespace StudentDetails
                 cmd.Parameters.Add(new SQLiteParameter("@prMother", dto.MotherName));
                 cmd.Parameters.Add(new SQLiteParameter("@prFather", dto.FatherName));
                 cmd.Parameters.Add(new SQLiteParameter("@prDescription", dto.Description));
+                cmd.Parameters.Add(new SQLiteParameter("@prPhoto", dto.Photo));
 
                 result.RowsAffected = await cmd.ExecuteNonQueryAsync();
                 conn.Close();
@@ -166,7 +167,8 @@ namespace StudentDetails
                         Nationality = reader["Nationality"].ToString(),
                         MotherName = reader["MotherName"].ToString(),
                         FatherName = reader["FatherName"].ToString(),
-                        Description = reader["Description"].ToString()
+                        Description = reader["Description"].ToString(),
+                        Photo = reader["Photo"] == DBNull.Value ? null : (byte[])reader["Photo"]
                     };
                 }
 
@@ -208,7 +210,8 @@ namespace StudentDetails
                         Nationality = reader["Nationality"].ToString(),
                         MotherName = reader["MotherName"].ToString(),
                         FatherName = reader["FatherName"].ToString(),
-                        Description = reader["Description"].ToString()
+                        Description = reader["Description"].ToString(),
+                        Photo = reader["Photo"] == DBNull.Value ? null : (byte[])reader["Photo"]
                     });
                 }
 
@@ -239,7 +242,7 @@ namespace StudentDetails
         public string ErrorMessage { get; set; }
         public bool Success { get; set; }
         public IList<T> List { get; set; }
-        
+
     }
 
     // DTO: data transfer object; used to transfer data/values between layers/units
@@ -257,6 +260,21 @@ namespace StudentDetails
         public string MotherName { get; set; }
         public string FatherName { get; set; }
         public string Description { get; set; }
+        public byte[] Photo { get; set; }
+        public Image StudentImage
+        {
+
+            get
+            {
+                if (Photo != null)
+                {
+                    using var stream = new MemoryStream(Photo);
+                    stream.Seek(0, SeekOrigin.Begin);
+                    return Image.FromStream(stream);
+                }
+                return null;
+            }
+        }
     }
 
     // poco: The exact representation of database object in .net class; used only in data access layer
@@ -274,5 +292,6 @@ namespace StudentDetails
         public string MotherName { get; set; }
         public string FatherName { get; set; }
         public string Description { get; set; }
+        public byte[] Photo { get; set; }
     }
 }
